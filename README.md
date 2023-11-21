@@ -31,7 +31,8 @@ name:string,
 price:number,
 imgUrl:string,
 description:string,
-category:string
+category:string,
+newProduct: boolean
 }
 ~~~
 - Example:
@@ -41,7 +42,8 @@ name:'Corn cake',
 price: 150.50,
 imgUrl: 🔗,
 description: "",
-category: "cake"
+category: "cake",
+newProduct: true
 }
 ~~~
 
