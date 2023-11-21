@@ -1,30 +1,30 @@
 
 (Logo)
 
-#G3 Bakery \
-##Production
+# G3 Bakery \
+## Production
 - URL: deploy url
 
 ##Technology
 - Front-end: ReactJS + HTML + CSS
 - UI Library: Material UI
 
-## Member
-- 
-###Duy Bao Ngo (Leader)
+## Member 
+\
+### Duy Bao Ngo (Leader)
 - Roles: Leader, Front-end developer
 - Tasks: Home page, landing page, set up project, reporter
-\n
-###Nhan Phu Le
+
+### Nhan Phu Le
 - Roles: Front-end developer
 - Tasks: Product list page, product page, category list page
-\n
-###Huy Quang Le
+\
+### Huy Quang Le
 - Roles: Front-end developer
 - Tasks: Cart page, common components
-\n
-##Software Design
-###Product
+\
+## Software Design
+### Product
 ~~~
 {
 name:string,
