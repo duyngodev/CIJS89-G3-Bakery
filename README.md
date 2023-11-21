@@ -12,13 +12,16 @@
 ##Member
 ###Duy Bao Ngo (Leader)
 - Roles: Leader, Front-end developer
-- Tasks: Home page, landing page, set up project
+- Tasks: Home page, landing page, set up project, supervisor
+\n
 ###Nhan Phu Le
 - Roles: Front-end developer
-- Tasks: Product list page, product page 
+- Tasks: Product list page, product page
+\n
 ###Huy Quang Le
 - Roles: Front-end developer
 - Tasks: Cart page, common components
+\n
 ##Software Design
 ###Product
 ~~~
