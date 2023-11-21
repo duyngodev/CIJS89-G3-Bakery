@@ -9,14 +9,15 @@
 - Front-end: ReactJS + HTML + CSS
 - UI Library: Material UI
 
-##Member
+## Member
+- 
 ###Duy Bao Ngo (Leader)
 - Roles: Leader, Front-end developer
-- Tasks: Home page, landing page, set up project, supervisor
+- Tasks: Home page, landing page, set up project, reporter
 \n
 ###Nhan Phu Le
 - Roles: Front-end developer
-- Tasks: Product list page, product page
+- Tasks: Product list page, product page, category list page
 \n
 ###Huy Quang Le
 - Roles: Front-end developer
