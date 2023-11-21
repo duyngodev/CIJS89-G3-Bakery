@@ -1,9 +1,9 @@
 
 (Logo)
 
-#G3 Bakery
+#G3 Bakery \
 ##Production
-- URL
+- URL: deploy url
 
 ##Technology
 - Front-end: ReactJS + HTML + CSS
@@ -12,8 +12,33 @@
 ##Member
 ###Duy Bao Ngo (Leader)
 - Roles: Leader, Front-end developer
+- Tasks: Home page, landing page, set up project
 ###Nhan Phu Le
 - Roles: Front-end developer
+- Tasks: Product list page, product page 
 ###Huy Quang Le
 - Roles: Front-end developer
+- Tasks: Cart page, common components
+##Software Design
+###Product
+~~~
+{
+name:string,
+price:number,
+imgUrl:string,
+description:string,
+category:string
+}
+~~~
+- Example:
+~~~
+{
+name:'Corn cake',
+price: 150.50,
+imgUrl: 🔗,
+description: "",
+category: "cake"
+}
+~~~
+
 
