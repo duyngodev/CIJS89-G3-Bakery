@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import './App.css'
 import Landing from './Pages/Landing'
-import Home from './Pages/Home'
 import { Route, Routes } from 'react-router-dom'
+import App2 from './App2'
 
 function App() {
 
@@ -10,7 +9,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<Home />} />
+        {/* Thêm Path to Service ở đây vì không có Header, Footer */}
+        <Route path="*" element={<App2 />} />
       </Routes>
     </>
   )
