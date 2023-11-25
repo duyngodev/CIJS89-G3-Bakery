@@ -41,8 +41,7 @@ const Landing = () => {
   },
   ]
   return (
-
-    <Container>
+    <Container sx={{ marginTop: "10%" }}>
       <Stack direction={{ xs: "column", sm: "row" }} justifyContent={"space-between"} p={{ xs: "250px 0 0  0", sm: "0" }} >
         <LandingList link={[link[0], link[1], link[2]]} />
         <LandingList link={[link[3], link[4], link[5]]} />
@@ -57,7 +56,6 @@ const Landing = () => {
         zIndex: "-99",
       }} />
     </Container >
-
   )
 }
 
