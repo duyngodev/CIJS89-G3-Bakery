@@ -13,7 +13,7 @@ const Landing = () => {
     url: "https://sugartown.vn/img/iconsanpham.png",
     alt: "Sản phẩm",
     title: "SẢN PHẨM DỊCH VỤ",
-    product: '/products'
+    product: '/product-list'
   },
   {
     url: "https://sugartown.vn/img/iconlogo.png",
@@ -41,7 +41,7 @@ const Landing = () => {
   },
   ]
   return (
-    <Container sx={{ marginTop: "10%" }}>
+    <Container sx={{ my: "10%" }}>
       <Stack direction={{ xs: "column", sm: "row" }} justifyContent={"space-between"} p={{ xs: "250px 0 0  0", sm: "0" }} >
         <LandingList link={[link[0], link[1], link[2]]} />
         <LandingList link={[link[3], link[4], link[5]]} />
