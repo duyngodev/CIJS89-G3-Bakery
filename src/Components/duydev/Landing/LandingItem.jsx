@@ -5,7 +5,7 @@ import ButtonIcon from './ButtonIcon'
 const LandingItem = ({ src, alt, title, link }) => {
     return (
         <Box>
-            <Link to={link}>
+            <Link to={link} >
                 <Stack justifyContent={'center'} alignContent={'center'} sx={{
                     marginBottom: "25px",
                     width: "105px",
@@ -21,7 +21,7 @@ const LandingItem = ({ src, alt, title, link }) => {
                         , width: "100%"
 
                     }}>
-                        <p >{title}</p>
+                        <p style={{ color: '#9d573c' }}>{title}</p>
                     </Box>
                 </Stack>
             </Link>
