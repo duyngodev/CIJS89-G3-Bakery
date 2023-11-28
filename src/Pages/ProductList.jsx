@@ -22,6 +22,7 @@ const ProductList = () => {
   //Button switch filtering
   const [state, setState] = useState({
     New: false,
+
     sell: false,
   });
   const handleChange = (event) => {
