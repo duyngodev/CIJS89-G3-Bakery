@@ -13,7 +13,9 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/home" element={<Home />} />
-                <Route path="/product-list" element={<ProductList />} />
+                <Route path="/product-list" element={<ProductList />} >
+                    <Route path=':page'></Route>
+                </Route>
                 {/* Thêm các path còn lại vào đây */}
                 <Route path="*" element={<NotFound404 />} />
 
