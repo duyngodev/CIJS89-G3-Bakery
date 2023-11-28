@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import Cart from './Pages/Cart'
 
 function App() {
+    localStorage.setItem("cart", "[]")
     const [data, setData] = useState([])
     const getLocalStorage = () => {
         const data = JSON.parse(localStorage.getItem("cart"))

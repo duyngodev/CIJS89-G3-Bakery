@@ -18,12 +18,12 @@ const Footer = () => {
                 backgroundSize: '100% 100%',
                 color: '#9e553b',
                 paddingTop: '80px',
-                position:'relative',
-                marginTop:'-150px'
+                position: 'relative',
+                marginTop: '-150px'
             }}>
                 <div style={{ marginLeft: '200px', fontSize: '20px' }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={3} sx={{marginLeft:'140px'}}>
+                        <Grid item xs={3} sx={{ marginLeft: '140px' }}>
                             <p>CONTACT</p>
                         </Grid>
                         <Grid item xs={3.6}>
@@ -34,36 +34,36 @@ const Footer = () => {
                         </Grid>
                     </Grid>
                 </div>
-                <div style={{ marginLeft: '200px', fontSize: '10px',marginTop:'20px', marginBottom:'20px' }}>
+                <div style={{ marginLeft: '200px', fontSize: '10px', marginTop: '20px', marginBottom: '20px' }}>
                     <Grid container spacing={3}>
                         <Grid item xs={3.5}>
                             <h5>G3 Bakery</h5>
                             <Stack direction="row" spacing={1}>
-                                <Phone sx={{fontSize:'15px'}} />
+                                <Phone sx={{ fontSize: '15px' }} />
                                 <p>0707155988</p>
                             </Stack>
                             <br />
                             <Stack direction="row" spacing={1}>
-                                <LocationOn sx={{fontSize:'15px'}}/>
+                                <LocationOn sx={{ fontSize: '15px' }} />
                                 <p>Số 10, Đường số 18, KDC Vạn Phúc,
                                     P. Hiệp Bình Phước, TP. HCM</p>
                             </Stack>
                         </Grid>
                         <Grid item xs={3.5} sx={{ marginLeft: '40px' }}>
                             <Stack direction="row" spacing={1}>
-                                <Email sx={{fontSize:'15px'}}/>
+                                <Email sx={{ fontSize: '15px' }} />
                                 <p style={{ marginTop: '2px' }}>Email:</p>
-                                <input type="text" placeholder='Đăng ký nhận bảng tin' style={{ padding: '5px', borderColor: '#FF8080', fontSize: '10px',width:'200px',borderRadius:'10px' }} />
+                                <input type="text" placeholder='Đăng ký nhận bảng tin' style={{ padding: '5px', borderColor: '#FF8080', fontSize: '10px', width: '200px', borderRadius: '10px' }} />
                                 <button style={{
-                                backgroundColor: '#9e553b', border: 'none', color: 'white', borderRadius: '10px', padding: '3px 12px', fontSize: '12px',position:'relative',
-                                top:'35px',right:'45px'
-                            }}>Gửi</button>
+                                    backgroundColor: '#9e553b', border: 'none', color: 'white', borderRadius: '10px', padding: '3px 12px', fontSize: '12px', position: 'relative',
+                                    top: '35px', right: '45px'
+                                }}>Gửi</button>
                             </Stack>
-                           
+
                         </Grid>
                         <Grid item xs sx={{ marginLeft: '60px' }}>
                             <Stack direction="row" spacing={1}>
-                                <Cake sx={{fontSize:'15px'}}/>
+                                <Cake sx={{ fontSize: '15px' }} />
                                 <p style={{ marginTop: '2px' }}>Bakery Store</p>
                             </Stack>
                         </Grid>
