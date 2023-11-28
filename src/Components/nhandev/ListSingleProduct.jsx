@@ -38,7 +38,7 @@ const ListSingleProduct = ({ data, setData }) => {
                            </figure>
                            <figcaption>
                               <h3><a href={product.name}>{product.name}</a></h3>
-                              <span>{product.price}</span>
+                              <span>{Number(product.price).toLocaleString()} đ</span>
                            </figcaption>
                            </div>
                               ))}
@@ -68,7 +68,7 @@ const ListSingleProduct = ({ data, setData }) => {
                                     </figure>
                                     <figcaption>
                                        <h3><a href={product.name}>{product.name}</a></h3>
-                                       <span>{product.price} đ</span>
+                                       <span>{Number(product.price).toLocaleString()} đ</span>
                                     </figcaption>
                                  </div>
                               ))}

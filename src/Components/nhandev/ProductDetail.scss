@@ -424,6 +424,12 @@ b{
 .item_sp {
     position: relative;
 }
+.item_sp:hover {
+    .datmua{
+        opacity: 100;
+        height: 30px;
+    }
+}
 .img_spnew {
     position: absolute;
     top: 0;
