@@ -9,9 +9,9 @@ const ButtonIcon = ({ children }) => {
         border: "1px solid black",
         marginBottom: "5px",
         position: "relative",
-        // background: "white",
+        background: "white",
         opacity: "1",
-        "&:hover": { backgroundColor: "white" },
+        "&:hover": { backgroundColor: "black" },
         "&::after": {
             content: '""',
             top: "5px",
@@ -22,7 +22,7 @@ const ButtonIcon = ({ children }) => {
             border: "1px solid black",
             position: "absolute",
             zIndex: "-10",
-            // background: "white",
+            background: "white",
 
 
 
