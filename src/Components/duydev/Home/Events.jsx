@@ -71,7 +71,7 @@ const Events = () => {
     }
 
     return (
-        <Box>
+        <Box >
             <Box position="relative" sx={{ top: '40%' }}>
                 <img style={imgStyle} src="	https://sugartown.vn/img/texttintuc.png" alt="" />
             </Box>
@@ -84,7 +84,7 @@ const Events = () => {
 
                             //     <img style={eventStyle} src={event.url} alt="" />
                             // </div>
-                            <Box key={index} flex={"0 0 auto"} overflow={'hidden'}>
+                            <Box key={index} flex={"1 0 33.33333%"} overflow={'hidden'}>
                                 <Link >
                                     <Box sx={evetnBoxStyle}>
                                         <Box component="img" sx={eventStyle} src={event.url} alt="" />
@@ -94,7 +94,7 @@ const Events = () => {
                                     <Link sx={{ textOverflow: 'ellipsis' }}>
                                         {event.title}
                                     </Link>
-                                    <p style={{ textOverflow: 'ellipsis' }}>{event.description}</p>
+                                    <p style={{ textOverflow: 'ellipsis', width: '100%' }}>{event.description}</p>
                                 </Box>
                                 <Stack>
                                     <button >xem them</button>
