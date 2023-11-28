@@ -1,17 +1,24 @@
-import { Stack } from '@mui/material'
+import { Stack, styled } from '@mui/material'
 import LandingItem from './LandingItem'
 
 
 
 const LandingList = ({ link }) => {
     const linkItem = link
-
+    const StackResponsive = styled(Stack)(({ theme }) => ({
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        [theme.breakpoints.up("sm")]: {
+            flexDirection: 'column',
+        }
+    }))
     return (
-        <Stack direction={{ xs: "row", sm: "column" }} justifyContent={"space-between"}>
+        <StackResponsive >
             {linkItem.map((item, index) => {
-                return (<LandingItem key={index} src={item.url} alt={item.alt} title={item.title} link={item.path} />)
+                return (<LandingItem key={index} src={item.url} alt={item.alt} title={item.title} />)
             })}
-        </Stack>
+        </StackResponsive>
 
     )
 }
