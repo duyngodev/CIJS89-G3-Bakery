@@ -18,26 +18,26 @@ const Footer = () => {
                 backgroundSize: '100% 100%',
                 color: '#9e553b',
                 paddingTop: '80px',
-                marginTop: '100px'
-
+                position:'relative',
+                marginTop:'-150px'
             }}>
                 <div style={{ marginLeft: '200px', fontSize: '20px' }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={2} sx={{ marginLeft: '40px' }}>
+                        <Grid item xs={3} sx={{marginLeft:'140px'}}>
                             <p>CONTACT</p>
                         </Grid>
-                        <Grid item xs={5}>
+                        <Grid item xs={3.6}>
                             <p>GET SUGARY LETTERS</p>
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item xs>
                             <p>OUR PRODUCT</p>
                         </Grid>
                     </Grid>
                 </div>
-                <div style={{ marginLeft: '140px', fontSize: '10px',marginTop:'20px' }}>
+                <div style={{ marginLeft: '200px', fontSize: '10px',marginTop:'20px', marginBottom:'20px' }}>
                     <Grid container spacing={3}>
-                        <Grid item xs={3.3}>
-                            <h2>G3 Bakery</h2>
+                        <Grid item xs={3.5}>
+                            <h5>G3 Bakery</h5>
                             <Stack direction="row" spacing={1}>
                                 <Phone sx={{fontSize:'15px'}} />
                                 <p>0707155988</p>
@@ -53,10 +53,10 @@ const Footer = () => {
                             <Stack direction="row" spacing={1}>
                                 <Email sx={{fontSize:'15px'}}/>
                                 <p style={{ marginTop: '2px' }}>Email:</p>
-                                <input type="text" placeholder='Đăng ký nhận bảng tin' style={{ padding: '5px', borderColor: '#FF8080', fontSize: '10px',width:'100%',borderRadius:'10px' }} />
+                                <input type="text" placeholder='Đăng ký nhận bảng tin' style={{ padding: '5px', borderColor: '#FF8080', fontSize: '10px',width:'200px',borderRadius:'10px' }} />
                                 <button style={{
                                 backgroundColor: '#9e553b', border: 'none', color: 'white', borderRadius: '10px', padding: '3px 12px', fontSize: '12px',position:'relative',
-                                top:'30px',right:'45px'
+                                top:'35px',right:'45px'
                             }}>Gửi</button>
                             </Stack>
                            

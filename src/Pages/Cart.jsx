@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { Stack } from '@mui/material';
+import { Link, Stack } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -14,9 +14,6 @@ import HighlightOff from '@mui/icons-material/HighlightOff';
 const Cart = (props) => {
     const [voucher, setVoucher] = useState('')
     const { data, setData } = props
-
-
-
     const totalPrice = data?.reduce((total, value) => {
         return total + value.quantityInCart * value.price
     }, 0)
@@ -28,7 +25,7 @@ const Cart = (props) => {
         return total + value.quantityInCart
     }, 0)
     const totalAmount = data?.reduce((total, value) => {
-        
+
         return total + value.id
     }, 0)
 
@@ -38,7 +35,7 @@ const Cart = (props) => {
                 return true
             }
         })
-        localStorage.setItem("products",JSON.stringify(newStateCart))
+        localStorage.setItem("cart", JSON.stringify(newStateCart))
         setData(newStateCart)
     }
     const decreaseBtClickHandler = (cartItem) => {
@@ -48,7 +45,7 @@ const Cart = (props) => {
         const cartNewState = [...data]
         cartNewState[indexElement] = { ...cartItem }
         cartNewState[indexElement].quantityInCart--
-        localStorage.setItem("products",JSON.stringify(cartNewState))
+        localStorage.setItem("cart", JSON.stringify(cartNewState))
         setData(cartNewState)
     }
 
@@ -59,7 +56,7 @@ const Cart = (props) => {
         const cartNewState = [...data]
         cartNewState[indexElement] = { ...cartItem }
         cartNewState[indexElement].quantityInCart++
-        localStorage.setItem("products",JSON.stringify(cartNewState))
+        localStorage.setItem("cart", JSON.stringify(cartNewState))
         setData(cartNewState)
     }
 
@@ -97,17 +94,22 @@ const Cart = (props) => {
                 display: 'flex',
                 flexDirection: 'row',
                 gap: '80px',
-                backgroundColor: '#FFFFFF',
-                paddingLeft: '30px',
+                backgroundImage: 'linear-gradient(#FFFFFF, #FDEDEF )',
+                marginTop: '14px',
+                paddingLeft: '150px',
+                paddingRight: '150px',
+                fontSize: '14px',
+                fontWeight: '400',
+                paddingBottom: '300px',
             }}
             >
                 <div style={{
-                    marginTop: '50px',
-                    width: '780px',
-                    height: '800px'
+                    marginTop: '60px',
+                    width: '55%',
+                    height: 'auto'
                 }}
                 >
-                    <h2 style={{ textAlign: 'center' }}>Giỏ hàng của tôi ({totalCart})</h2>
+                    <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data.length})</h2>
                     <p style={{ textAlign: 'center' }}> Không có sản phẩm trong giỏ hàng !!!</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
 
@@ -128,49 +130,47 @@ const Cart = (props) => {
                                 fontSize: '15px',
                                 backgroundColor: '#9e553b',
                                 color: 'white'
-                            }}>
+                            }} onClick={handleClickVoucher}>
                                 Áp dụng
                             </Button>
                         </ThemeProvider>
                     </Stack>
+                    {voucher}
                 </div>
                 <div style={{
                     marginTop: '50px',
-                    width: '380px',
+                    width: '40%',
                     backgroundColor: '#ffdec5',
                     padding: '20px',
-                    height: '100%'
+                    height: '100%',
                 }}
                 >
                     <h3 style={{ textAlign: 'center' }}>Thông tin đơn hàng</h3>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <p>Các món giao ngay ({totalCart})</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <Grid container spacing={2} columns={16}>
-                        <Grid item xs={12}>
+                    <Grid container spacing={1} columns={16}>
+                        <Grid item xs={12.5}>
                             <p>Tổng đơn :</p>
                             <h4>Tổng tiền thanh toán :</h4>
                         </Grid>
                         <Grid item xs={2}>
-                            <p>{totalPrice}₫</p>
-                            <p>{totalPrice}₫</p>
+                            <p>{VND.format(totalPrice)}</p>
+                            <p>{VND.format(totalPrice)}</p>
                         </Grid>
                     </Grid>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <Stack spacing={2} sx={{ marginTop: '20px' }}>
-
-                        <ThemeProvider theme={theme}>
-                            <Button variant="contained" sx={{
-                                width: '380px',
-                                height: '40px',
-                                fontSize: '15px',
-                                backgroundColor: '#fbdbe0',
-                                color: 'white'
-                            }}>
-                                Tiếp tục mua hàng
-                            </Button>
-                        </ThemeProvider>
-                    </Stack>
+                    <ThemeProvider theme={theme}>
+                        <Button variant="contained" sx={{
+                            width: '100%',
+                            height: '100%',
+                            fontSize: '15px',
+                            backgroundColor: '#fbdbe0',
+                            color: 'white'
+                        }}>
+                            <a style={{color:'white'}} href='/home'>Tiếp tục mua hàng</a>
+                        </Button>
+                    </ThemeProvider>
                 </div>
 
             </div>
@@ -182,36 +182,39 @@ const Cart = (props) => {
                 display: 'flex',
                 flexDirection: 'row',
                 gap: '80px',
-                backgroundColor: '#FFFFFF',
-                paddingLeft: '30px',
+                backgroundImage: 'linear-gradient(#FFFFFF, #FDEDEF )',
+                marginTop: '14px',
+                paddingLeft: '150px',
+                paddingRight: '150px',
+                fontSize: '14px',
+                fontWeight: '400',
+                paddingBottom: '300px',
             }}
             >
                 <div style={{
-                    marginTop: '50px',
-                    width: '780px',
+                    marginTop: '60px',
+                    width: '55%',
                     height: 'auto'
                 }}
                 >
-                    <h2 style={{ textAlign: 'center',fontSize:'18px' }}>Giỏ hàng của tôi ({totalCart})</h2>
+                    <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data.length})</h2>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <div>
-                        <Box sx={{ flexGrow: 1 }}>
-                            <Grid container spacing={3}>
-                                <Grid item xs={5}>
-                                    <p>Chi tiết món</p>
-                                </Grid>
-                                <Grid item xs>
-                                    <p>Giá</p>
-                                </Grid>
-                                <Grid item xs>
-                                    <p>Số lượng</p>
-                                </Grid>
-                                <Grid item xs>
-                                    <p>Tổng tiền</p>
-                                </Grid>
+                    <Box sx={{ flexGrow: 1 }}>
+                        <Grid container spacing={3}>
+                            <Grid item xs={4.8}>
+                                <p>Chi tiết món</p>
                             </Grid>
-                        </Box>
-                    </div>
+                            <Grid item xs={2.2}>
+                                <p>Giá</p>
+                            </Grid>
+                            <Grid item xs>
+                                <p>Số lượng</p>
+                            </Grid>
+                            <Grid item xs={2.4}>
+                                <p>Tổng tiền</p>
+                            </Grid>
+                        </Grid>
+                    </Box>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     {data?.map((cartItem) => {
                         if (cartItem.quantityInCart > 0) {
@@ -219,16 +222,16 @@ const Cart = (props) => {
                                 <Box key={cartItem.id} sx={{ flexGrow: 1 }}>
                                     <Grid container spacing={2}>
                                         <Grid item xs={2}>
-                                            <img src={cartItem.imgURL1} style={{ height: '50px', width: '50px' }} alt="" />
+                                            <img src={cartItem.img1} style={{ height: '50px', width: '50px' }} alt="" />
                                         </Grid>
-                                        <Grid item xs={3}>
+                                        <Grid item xs={2.5}>
                                             <p>{cartItem.name}</p>
                                         </Grid>
                                         <Grid item xs={2.3}>
                                             <p>{VND.format(cartItem.price)}</p>
                                         </Grid>
                                         <Grid item xs={2.2}>
-                                            <Stack direction="row" spacing={1} sx={{ marginTop: '14px' }} >
+                                            <Stack direction="row" spacing={1} >
                                                 <RemoveCircle fontSize='small' sx={{
                                                     color: '#eeeeee', minWidth: '20px',
                                                     width: 'auto',
@@ -242,10 +245,10 @@ const Cart = (props) => {
                                                 }} onClick={() => (increaseBtClickHandler(cartItem))} />
                                             </Stack>
                                         </Grid>
-                                        <Grid item xs>
-                                            <p style={{textAlign:'end'}}>{VND.format(cartItem.quantityInCart * cartItem.price)}</p>
+                                        <Grid item xs={2}>
+                                            <p style={{ textAlign: 'end' }}>{VND.format(cartItem.quantityInCart * cartItem.price)}</p>
                                         </Grid>
-                                        <Grid item xs={0.6} sx={{ marginTop: '13px' }}>
+                                        <Grid item xs={0.6}>
                                             <HighlightOff fontSize='small' onClick={() => (deleteBtClickHandler(cartItem.id))} />
                                         </Grid>
                                     </Grid>
@@ -254,7 +257,7 @@ const Cart = (props) => {
                         }
                     })}
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <Stack direction="row" spacing={2} style={{marginTop:'30px'}}>
+                    <Stack direction="row" spacing={2} style={{ marginTop: '30px' }}>
                         <TextField
                             id="filled-textarea"
                             label="Nhập mã voucher của bạn (nếu có):"
@@ -280,25 +283,25 @@ const Cart = (props) => {
                 </div>
                 <div style={{
                     marginTop: '50px',
-                    width: '380px',
+                    width: '40%',
                     backgroundColor: '#ffdec5',
                     padding: '20px',
-                    height: '100%'
+                    height: '100%',
                 }}
                 >
                     <h3 style={{ textAlign: 'center' }}>Thông tin đơn hàng</h3>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <p>Các món giao ngay ({totalCart})</p>
+                    <p>Các món giao ngay ({data.length})</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <Grid container spacing={1} columns={16}>
-                        <Grid item xs={11}>
+                        <Grid item xs={12.5}>
                             <p>Tổng đơn :</p>
                             <p>Bạn được giảm :</p>
-                            <h4>Tổng tiền thanh toán :</h4>
+                            <h6>Tổng tiền thanh toán :</h6>
                         </Grid>
                         <Grid item xs={2}>
                             <p>{VND.format(totalPrice)}</p>
-                            <p style={{marginLeft:'45px'}}>{VND.format(0)}</p>
+                            <p style={{ marginLeft: '45px' }}>{VND.format(0)}</p>
                             <p>{VND.format(totalPrice)}</p>
                         </Grid>
                     </Grid>
@@ -306,8 +309,8 @@ const Cart = (props) => {
                     <Stack spacing={2} sx={{ marginTop: '20px' }}>
                         <ThemeProvider theme={theme}>
                             <Button variant="contained" sx={{
-                                width: '380px',
-                                height: '40px',
+                                width: '100%',
+                                height: '100%',
                                 fontSize: '15px',
                                 backgroundColor: '#9e553b',
                                 color: 'white'
@@ -317,19 +320,19 @@ const Cart = (props) => {
                         </ThemeProvider>
                         <ThemeProvider theme={theme}>
                             <Button variant="contained" sx={{
-                                width: '380px',
-                                height: '40px',
+                                width: '100%',
+                                height: '100%',
                                 fontSize: '15px',
                                 backgroundColor: '#fbdbe0',
                                 color: 'white'
                             }}>
-                                Tiếp tục mua hàng
+                                <a style={{color:'white'}} href='/home'>Tiếp tục mua hàng</a>
                             </Button>
                         </ThemeProvider>
                     </Stack>
                 </div>
 
-            </div>
+            </div >
         </>
     )
 }
