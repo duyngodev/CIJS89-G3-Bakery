@@ -22,7 +22,7 @@ const LandingItem = ({ src, alt, title }) => {
     }))
     return (
         <Box>
-            <Link to={link} >
+            <Link to="" >
                 <Stack justifyContent={'center'} alignContent={'center'} sx={{
                     marginBottom: "25px",
                     width: "105px",

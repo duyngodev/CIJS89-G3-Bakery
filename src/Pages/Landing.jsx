@@ -1,4 +1,4 @@
-import { Box, Stack, styled } from "@mui/material"
+import { Box, Stack, styled, Container } from "@mui/material"
 import LandingList from "../Components/duydev/Landing/LandingList"
 
 const Landing = () => {

@@ -8,7 +8,7 @@ function App() {
   
   return (
     <>
-     <ProductDetail></ProductDetail> 
+     
       <Routes>
         <Route path="/" element={<Landing />} />
         {/* Thêm Path to Service ở đây vì không có Header, Footer */}
