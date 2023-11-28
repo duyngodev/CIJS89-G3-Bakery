@@ -6,26 +6,21 @@ const ButtonIcon = ({ children }) => {
         height: "90px",
         width: "72px",
         borderRadius: "35px 35px 10px 10px",
-        border: "1px solid black",
+        border: "2px solid #f5b8a6",
         marginBottom: "5px",
         position: "relative",
-        background: "white",
-        opacity: "1",
-        "&:hover": { backgroundColor: "black" },
+        "&:hover": { backgroundColor: "white" },
         "&::after": {
             content: '""',
-            top: "5px",
-            left: "5px",
+            top: "3px",
+            left: "3px",
             height: "90px",
             width: "72px",
             borderRadius: "35px 35px 10px 10px",
-            border: "1px solid black",
             position: "absolute",
             zIndex: "-10",
-            background: "white",
-
-
-
+            border: "2px solid #f5b8a6",
+            borderStyle: "none solid solid none",
         }, "&::before": {
             content: '""',
             top: "10px",
@@ -33,10 +28,10 @@ const ButtonIcon = ({ children }) => {
             height: "90px",
             width: "72px",
             borderRadius: "35px 35px 10px 10px",
-            border: "1px solid black",
             position: "absolute",
             zIndex: "-10",
-
+            border: "2px solid #f5b8a6",
+            borderStyle: "none solid solid none",
         }
     })
     return (<>

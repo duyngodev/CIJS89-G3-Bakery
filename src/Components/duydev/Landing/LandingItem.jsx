@@ -22,13 +22,25 @@ const LandingItem = ({ src, alt, title }) => {
     }))
     return (
         <Box>
-            <Link>
-                <StackResponsive>
-                    <ButtonIcon>
+            <Link to={link} >
+                <Stack justifyContent={'center'} alignContent={'center'} sx={{
+                    marginBottom: "25px",
+                    width: "105px",
+                    flexWrap: 'wrap'
+                }}>
+                    <ButtonIcon width={"100%"}>
                         <img style={{ maxWidth: "100%", height: "auto" }} src={src} alt={alt} />
                     </ButtonIcon>
-                    <TagPResponsive>{title}</TagPResponsive>
-                </StackResponsive>
+                    <Box sx={{
+                        fontSize: { xs: "12px", sm: '14px' },
+                        height: "38.5px",
+                        wordBreak: "break-word"
+                        , width: "100%"
+
+                    }}>
+                        <p style={{ color: '#9d573c' }}>{title}</p>
+                    </Box>
+                </Stack>
             </Link>
         </Box>
     )
