@@ -8,6 +8,8 @@ import ProductList from './Pages/ProductList'
 import ProductDetail from './Pages/ProductDetail'
 import { useEffect, useState } from 'react'
 import Cart from './Pages/Cart'
+import Service from './Pages/Service'
+import CategoryListPage from './Pages/CategoryListPage'
 
 function App() {
     const [data, setData] = useState([])
@@ -27,6 +29,8 @@ function App() {
                 <Route path="/products" element={<ProductList />} />
                 <Route path='/products/productDetail' element={<ProductDetail/>}/>
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/Service" element={<Service />} />
+                <Route path="/Service/CategoryListPage" element={<CategoryListPage />} />
                 {/* Thêm các path còn lại vào đây */}
                 <Route path="*" element={<NotFound404 />} />
 
