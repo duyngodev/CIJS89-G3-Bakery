@@ -12,25 +12,24 @@ import Service from './Pages/Service'
 import CategoryListPage from './Pages/CategoryListPage'
 
 function App() {
+    
     const [data, setData] = useState([])
     const getLocalStorage = () => {
-        const data = JSON.parse(localStorage.getItem("products")) 
+        const data = JSON.parse(localStorage.getItem("cart"))
         setData(data)
     }
-
     useEffect(() => {
         getLocalStorage()
     }, [])
+    
     return (
         <>
             <Header data={data} />
             <Routes>
                 <Route path="/home" element={<Home />} />
                 <Route path="/products" element={<ProductList />} />
-                <Route path='/products/productDetail' element={<ProductDetail/>}/>
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/Service" element={<Service />} />
-                <Route path="/Service/CategoryListPage" element={<CategoryListPage />} />
+                <Route path='/products/productDetail' element={<ProductDetail />} />
+                <Route path="/cart" element={<Cart data={data} setData={setData} />} />
                 {/* Thêm các path còn lại vào đây */}
                 <Route path="*" element={<NotFound404 />} />
 
