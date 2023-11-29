@@ -27,8 +27,8 @@ function App() {
             <Header data={data} />
             <Routes>
                 <Route path="/home" element={<Home />} />
-                <Route path="/products" element={<ProductList />} />
-                <Route path='/products/productDetail' element={<ProductDetail />} />
+                <Route path="/products/:category" element={<ProductList />} />
+                <Route path='/products/productDetail/:id' element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart data={data} setData={setData} />} />
                 <Route path='/service' element={<Service/>} />
                 <Route path='/service/CategoryListPage' element={<CategoryListPage/>} />

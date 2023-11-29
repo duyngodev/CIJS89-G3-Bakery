@@ -3,9 +3,10 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { useState } from 'react'
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ProductList = () => {
+
   //CSS properties
   const bannerStyle = {
     width: '100%',
@@ -34,17 +35,20 @@ const ProductList = () => {
   const { New, sell } = state;
 
 
+
   //danh mục Filtering
-  const [toggle, setToggle] = useState('20/11')
-  const [filterItem, setFilterItem] = useState('20/11')
+
+  const [toggle, setToggle] = useState('20-11')
+  const [filterItem, setFilterItem] = useState('20-11')
   const handleDanhMuc = (e) => {
     setFilterItem(e.target.name)
     setToggle(e.target.value)
   }
+
   const filterData =
     [{
-      name: '20/11',
-      category: '20/11'
+      name: '20-11',
+      category: '20-11'
     },
     {
       name: 'BÁNH KEM SỮA',
@@ -91,7 +95,13 @@ const ProductList = () => {
       category: 'BÁNH LẠNH'
     }
     ]
-
+      // Get category from URL parameter
+  const { category } = useParams();
+  const cateName = filterData.filter(item => item.category === category)
+  useEffect(() => {
+    setFilterItem(category)
+    setToggle(cateName[0].name)
+  }, [])
   // Lấy data về
   const [dataProduct, setDataProduct] = useState([])
   useEffect(() => {
