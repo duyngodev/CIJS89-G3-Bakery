@@ -51,7 +51,7 @@ const Footer = () => {
                         </Grid>
                         <Grid item xs={3.5} sx={{ marginLeft: '20px' }}>
                             <Stack direction="row" spacing={1}>
-                                <Email sx={{ fontSize: '15px' }} />
+                                <Email sx={{ fontSize: '15px'}} />
                                 <p>Email:</p>
                                 <input type="text" placeholder='Đăng ký nhận bảng tin' style={{ paddingLeft: '10px', borderColor: '#FF8080', fontSize: '10px', width: '145px',height:'27px', borderRadius: '20px' }} />
                                 <button style={{

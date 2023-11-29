@@ -115,7 +115,7 @@ const Header = (props) => {
                     >
                         G3Bakery
                     </Typography>
-                    <Badge badgeContent={data.length} color="primary"> <ShoppingCartIcon /></Badge>
+                    <Badge badgeContent={data?.length} color="primary"> <ShoppingCartIcon /></Badge>
                 </Toolbar>
             </Container>
         </AppBar>

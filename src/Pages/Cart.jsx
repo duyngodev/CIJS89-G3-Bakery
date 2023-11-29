@@ -89,7 +89,7 @@ const Cart = (props) => {
         }
     })
 
-    if (data?.length == 0 || cartsCheckAmountNoEmpty?.length == 0) {
+    if (!data || data?.length == 0 || cartsCheckAmountNoEmpty?.length == 0) {
         return (
             <div style={{
                 display: 'flex',
@@ -110,7 +110,7 @@ const Cart = (props) => {
                     height: 'auto'
                 }}
                 >
-                    <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data.length})</h2>
+                    <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data?.length})</h2>
                     <p style={{ textAlign: 'center' }}> Không có sản phẩm trong giỏ hàng !!!</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
 
@@ -118,7 +118,7 @@ const Cart = (props) => {
                         <TextField
                             id="filled-textarea"
                             label="Nhập mã voucher của bạn (nếu có):"
-                            placeholder="Ex: MINDX12345678"
+                            placeholder="Ex: G3B12345678"
                             multiline
                             variant="filled"
                             style={{ width: '100%', padding: '10px' }}
@@ -153,11 +153,11 @@ const Cart = (props) => {
                     <Grid container spacing={1} columns={16}>
                         <Grid item xs={12.5}>
                             <p>Tổng đơn :</p>
-                            <h4>Tổng tiền thanh toán :</h4>
+                            <h6>Tổng tiền thanh toán :</h6>
                         </Grid>
                         <Grid item xs={2}>
-                            <p>{VND.format(totalPrice)}</p>
-                            <p>{VND.format(totalPrice)}</p>
+                            <p>{VND.format(0)}</p>
+                            <p>{VND.format(0)}</p>
                         </Grid>
                     </Grid>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
@@ -198,7 +198,7 @@ const Cart = (props) => {
                     height: 'auto'
                 }}
                 >
-                    <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data.length})</h2>
+                    <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data?.length})</h2>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={3}>
@@ -292,7 +292,7 @@ const Cart = (props) => {
                 >
                     <h3 style={{ textAlign: 'center' }}>Thông tin đơn hàng</h3>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <p>Các món giao ngay ({data.length})</p>
+                    <p>Các món giao ngay ({data?.length})</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <Grid container spacing={1} columns={16}>
                         <Grid item xs={12}>
