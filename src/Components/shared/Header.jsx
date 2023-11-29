@@ -14,10 +14,11 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 
-const pages = ['Home', 'Products', 'About us', 'News', 'Event', 'Contact']
+const pages = ['Home', 'Products', 'AboutUs', 'News', 'Event', 'Contact']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Header = (props) => {
     const { data } = props
@@ -43,7 +44,6 @@ const Header = (props) => {
                         variant="h6"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
                         sx={{
                             flexGrow: 1,
                             mr: 2,
@@ -90,7 +90,7 @@ const Header = (props) => {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Link to={"/"+page}><Typography textAlign="center">{page}</Typography></Link> 
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -99,7 +99,6 @@ const Header = (props) => {
                         variant="h5"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -115,7 +114,7 @@ const Header = (props) => {
                     >
                         G3Bakery
                     </Typography>
-                    <Badge badgeContent={data?.length} color="primary"> <ShoppingCartIcon /></Badge>
+                   <Link to="/cart" style={{color:'white'}}><Badge badgeContent={data?.length} color="primary"> <ShoppingCartIcon /></Badge></Link> 
                 </Toolbar>
             </Container>
         </AppBar>

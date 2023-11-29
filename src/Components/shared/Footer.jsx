@@ -18,7 +18,6 @@ const Footer = () => {
                 backgroundSize: '100% 100%',
                 color: '#9e553b',
                 paddingTop: '80px',
-                position: 'relative',
                 marginTop: '-150px'
             }}>
                 <div style={{ marginLeft: '200px', fontSize: '20px' }}>
