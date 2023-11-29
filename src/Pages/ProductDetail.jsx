@@ -12,6 +12,7 @@ const ProductDetail = () => {
   const [listData, setListData] = useState([]);
   const [Examples, setExamples] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
+  
   var id=1;
   if(selectedProductId){
     id=selectedProductId;
@@ -72,7 +73,7 @@ const ProductDetail = () => {
               </div>
             </div>
           </section>
-          <SingleProduct setData={setData} data={data} getProduct={getProductSingle} />
+          <SingleProduct setData={setData} data={data}/>
           <ListSingleProduct setData={setExamples} data={Examples} setSelectedProductId={setSelectedProductId}/>
         </main>
       </div>

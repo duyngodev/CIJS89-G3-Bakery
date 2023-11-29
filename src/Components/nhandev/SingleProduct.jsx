@@ -6,6 +6,8 @@ const SingleProduct = ({ data, setData, getProduct }) => {
   const [loading, setLoading] = useContext(ApiStateContext);
   const [quantity, setQuantity] = useState(1);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  
+  
   const handleAddToCart = () => {
     const productToStore = {
       id: data.id,
@@ -18,23 +20,32 @@ const SingleProduct = ({ data, setData, getProduct }) => {
       newProduct: data.newProduct,
       bestSeller: data.bestSeller,
       quantity: data.quantity,
-      quantityInCart: data.quantityInCart
+      quantityInCart: quantity,
     };
     // Retrieve existing cart data from local storage
     const existingCartData = JSON.parse(localStorage.getItem("cart")) || [];
-
+    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+    const existingProductIndex = existingCartData.findIndex(item => item.id === data.id);
     // Add the new product to the cart data
-    const updatedCartData = [...existingCartData, productToStore];
+    if (existingProductIndex !== -1) {
+      // Nếu sản phẩm đã tồn tại, cộng thêm quantityInCart
+      existingCartData[existingProductIndex].quantityInCart += quantity;
+    } else {
+      // Nếu sản phẩm chưa tồn tại, thêm sản phẩm vào giỏ hàng
+      existingCartData.push(productToStore);
+    }
 
-    // Save the updated cart data back to local storage
-    localStorage.setItem("cart", JSON.stringify(updatedCartData));
+    localStorage.setItem("cart", JSON.stringify(existingCartData));
 
-    // You can also display a message or perform other actions after adding to cart
+    // Hiển thị thông báo và cập nhật trạng thái isAddedToCart
     console.log("Product added to cart:", productToStore);
     setIsAddedToCart(true);
   }
 
-
+  useEffect(()=>{
+    setQuantity(1);
+    setIsAddedToCart(false);
+  },[data])
 
   return (
     <>
@@ -98,7 +109,10 @@ const SingleProduct = ({ data, setData, getProduct }) => {
                       <button onClick={() => {
                         var result = document.getElementById('qty');
                         var qty = result.value;
-                        if (!isNaN(qty) && qty > 1) result.value--;
+                        if (!isNaN(qty) && qty > 1){
+                          result.value--;
+                          setQuantity(result.value--);
+                        } 
                         return false;
                       }}
                         className="btn-minus btn-cts" type="button"><b>–</b></button>
@@ -109,12 +123,17 @@ const SingleProduct = ({ data, setData, getProduct }) => {
                         name="quantity"
                         size="4"
                         value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)}
+                        onChange={(e)=>{
+                          setQuantity(e.target.value)
+                        }}
                       />
                       <button onClick={() => {
                         var result = document.getElementById('qty');
                         var qty = result.value;
-                        if (!isNaN(qty)) result.value++;
+                        if (!isNaN(qty)){
+                          result.value++;
+                          setQuantity(result.value++);
+                        } 
                         return false;
                       }}
                         className="btn-plus btn-cts" type="button"><b>+</b></button>

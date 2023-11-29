@@ -127,7 +127,10 @@ a {
 figure {
     margin: 0;
 }
-
+figure img{
+    max-width: 60%;
+    margin-left: 20%;
+}   
 .item_cap2 .middle {
     transition: .5s ease;
     position: absolute;
