@@ -9,10 +9,13 @@ const ProductDetail = () => {
   
   const [data, setData] = useState([]);
   const [loading, setLoading] = useContext(ApiStateContext)
-  const id = 24;
   const [listData, setListData] = useState([]);
   const [Examples, setExamples] = useState([]);
-
+  const [selectedProductId, setSelectedProductId] = useState(null);
+  var id=1;
+  if(selectedProductId){
+    id=selectedProductId;
+  }
   const getExamples = () => {
     const examples = listData.filter(item => item.category === data.category && item.id !== data.id);
     setExamples(examples);
@@ -46,11 +49,15 @@ const ProductDetail = () => {
   useEffect(() => {
     getProductSingle();
     getProducts();
-
   }, []);
-
+  useEffect(()=>{
+    if (selectedProductId) {
+      getProductSingle();
+    }
+  },[selectedProductId])
   useEffect(() => {
     getExamples();
+    
   }, [data, listData]);
   return (
     <>
@@ -60,13 +67,13 @@ const ProductDetail = () => {
             <div className="container">
               <div className="title_cattintuc w-100">
                 <h2><img src="https://www.sugartown.vn/img/muiten.png" alt="G3-BAKERY" />
-                  <a href="bakery-store">Tất cả sản phẩm</a>
+                  <a href="/products">Tất cả sản phẩm</a>
                 </h2>
               </div>
             </div>
           </section>
           <SingleProduct setData={setData} data={data} getProduct={getProductSingle} />
-          <ListSingleProduct setData={setExamples} data={Examples}/>
+          <ListSingleProduct setData={setExamples} data={Examples} setSelectedProductId={setSelectedProductId}/>
         </main>
       </div>
 

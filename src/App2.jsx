@@ -8,6 +8,8 @@ import ProductList from './Pages/ProductList'
 import ProductDetail from './Pages/ProductDetail'
 import { useEffect, useState } from 'react'
 import Cart from './Pages/Cart'
+import Service from './Pages/Service'
+import CategoryListPage from './Pages/CategoryListPage'
 
 function App() {
     
