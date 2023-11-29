@@ -16,7 +16,7 @@ const LandingList = ({ link }) => {
     return (
         <StackResponsive >
             {linkItem.map((item, index) => {
-                return (<LandingItem key={index} src={item.url} alt={item.alt} title={item.title} />)
+                return (<LandingItem key={index} src={item.url} alt={item.alt} title={item.title} link={item.path} />)
             })}
         </StackResponsive>
 
