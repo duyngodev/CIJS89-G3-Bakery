@@ -63,7 +63,7 @@ const ProductDetail = () => {
     <>
       <div id="wrapper">
         <main>
-          <section style={{ background: "#ebebeb" }}>
+          <section style={{ background: "#ebebeb"}}>
             <div className="container">
               <div className="title_cattintuc w-100">
                 <h2><img src="https://www.sugartown.vn/img/muiten.png" alt="G3-BAKERY" />
