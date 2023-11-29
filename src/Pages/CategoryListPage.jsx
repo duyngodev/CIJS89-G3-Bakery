@@ -59,7 +59,7 @@ const CategoryListPage = () => {
                                     return (
                                         <div className="item_cap2" key={item.category}>
                                             <a onClick={() => handleCategoryClick(item.category)}>
-                                                <figure><img src={item.img} alt="G3-BAKERY" /></figure>
+                                                <figure className='figure'><img src={item.img} alt="G3-BAKERY" /></figure>
                                                 <div className="middle">
                                                     <span className="text">{item.name} </span>
                                                 </div>
