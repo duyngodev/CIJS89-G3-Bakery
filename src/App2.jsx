@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import Cart from './Pages/Cart'
 import Service from './Pages/Service'
 import CategoryListPage from './Pages/CategoryListPage'
+import Aboutus from './Pages/Aboutus'
 
 function App() {
     
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/products" element={<ProductList />} />
                 <Route path='/products/productDetail' element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart data={data} setData={setData} />} />
+                <Route path="/aboutus" element={<Aboutus />} />
                 {/* Thêm các path còn lại vào đây */}
                 <Route path="*" element={<NotFound404 />} />
 

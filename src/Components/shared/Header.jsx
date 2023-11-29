@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const pages = ['Home', 'Products', 'About-us', 'News', 'Event', 'Contact']
+const pages = ['Home', 'Products', 'AboutUs', 'News', 'Event', 'Contact']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Header = (props) => {
     const { data } = props
