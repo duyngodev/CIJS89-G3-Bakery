@@ -6,24 +6,25 @@ const LandingItem = ({ src, alt, title, link }) => {
     return (
         <Box>
             <Link to={link} >
-                <Stack justifyContent={'center'} alignContent={'center'} sx={{
+                <Box sx={{
                     marginBottom: "25px",
                     width: "105px",
-                    flexWrap: 'wrap'
                 }}>
-                    <ButtonIcon width={"100%"}>
-                        <img style={{ maxWidth: "100%", height: "auto" }} src={src} alt={alt} />
-                    </ButtonIcon>
+                    <Box textAlign={'center'}>
+                        <ButtonIcon width={"100%"}>
+                            <img style={{ maxWidth: "100%", height: "auto" }} src={src} alt={alt} />
+                        </ButtonIcon>
+                    </Box>
                     <Box sx={{
                         fontSize: { xs: "12px", sm: '14px' },
                         height: "38.5px",
                         wordBreak: "break-word"
-                        , width: "100%"
-
+                        , width: "100%",
+                        textAlign: 'center'
                     }}>
                         <p style={{ color: '#9d573c' }}>{title}</p>
                     </Box>
-                </Stack>
+                </Box>
             </Link>
         </Box>
     )
