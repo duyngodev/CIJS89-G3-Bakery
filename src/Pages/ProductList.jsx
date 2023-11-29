@@ -45,7 +45,7 @@ const ProductList = () => {
 
   const filterData =
     [{
-      name: '20-11',
+      name: '20/11',
       category: '20-11'
     },
     {
