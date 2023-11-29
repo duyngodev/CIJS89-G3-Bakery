@@ -199,7 +199,7 @@ const ProductList = () => {
                   <Grid key={item.id} item xs={4}>
                     <Stack >
                       <figure>
-                        <Link>
+                        <Link to={`/products/productDetail/${item.id}`}>
                           <div style={{ borderRadius: '50% 50% 0 0', backgroundColor: '#e5e5e5', padding: '15px 15px 15px 15px', textAlign: 'center', position: 'relative' }}>
                             {/* new item */}
                             {item.newProduct && <div style={{ position: 'absolute', top: '0', right: '0' }}>
