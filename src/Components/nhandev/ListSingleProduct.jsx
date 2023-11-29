@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ApiStateContext } from "./ApiStateProvider";
 
-const ListSingleProduct = ({ data, setData }) => {
+const ListSingleProduct = ({ data, setData, setSelectedProductId  }) => {
 
    const [loading, setLoading] = useContext(ApiStateContext);
    const limitedData = data.slice(0, 5);
    return (
       <>
-
          <section className="section_product2">
             <div className="container">
                <div className="row">
@@ -27,17 +26,23 @@ const ListSingleProduct = ({ data, setData }) => {
                            <figure>
                               <div className="product--image__inner">
                                  <div className="pro_img imgsp1 imgsp11">
-                                    <a href={product.name}>
+                                    <a onClick={() => {
+                                       setSelectedProductId(product.id);
+                                       }}>
                                        <img className="image-product-detail" src={product.imgURL1} alt="G3-BAKERY" />
                                     </a>
                                  </div>
                               </div>
                               <div className="datmua">
-                                 <a className="add_to_cart" data-id={product.id}>Xem chi tiết</a>
+                                 <a className="add_to_cart" data-id={product.id} onClick={() => {
+                                       setSelectedProductId(product.id);
+                                       }}>Xem chi tiết</a>
                               </div>
                            </figure>
                            <figcaption>
-                              <h3><a href={product.name}>{product.name}</a></h3>
+                              <h3><a onClick={() => {
+                                       setSelectedProductId(product.id);
+                                       }} >{product.name}</a></h3>
                               <span>{Number(product.price).toLocaleString()} đ</span>
                            </figcaption>
                            </div>
@@ -59,15 +64,21 @@ const ListSingleProduct = ({ data, setData }) => {
                                     <figure>
                                        <div className="product--image__inner">
                                           <div className={`pro_img imgsp1 imgsp11`}>
-                                             <a href={product.name}><img className="image-product-detail" src={product.imgURL1} alt="G3-BAKERY" /></a>
+                                             <a onClick={() => {
+                                       setSelectedProductId(product.id);
+                                       }}><img className="image-product-detail" src={product.imgURL1} alt="G3-BAKERY" /></a>
                                           </div>
                                        </div>
                                        <div className="datmua">
-                                          <a className="add_to_cart" data-id={product.id}>Xem chi tiet</a>
+                                          <a className="add_to_cart" data-id={product.id} onClick={() => {
+                                       setSelectedProductId(product.id);
+                                       }}>Xem chi tiet</a>
                                        </div>
                                     </figure>
                                     <figcaption>
-                                       <h3><a href={product.name}>{product.name}</a></h3>
+                                       <h3><a onClick={() => {
+                                       setSelectedProductId(product.id);
+                                       }}>{product.name}</a></h3>
                                        <span>{Number(product.price).toLocaleString()} đ</span>
                                     </figcaption>
                                  </div>
@@ -82,5 +93,4 @@ const ListSingleProduct = ({ data, setData }) => {
       </>
    );
 };
-
 export default ListSingleProduct;

@@ -6,8 +6,8 @@
 
 
 main {
-    background-color: #F6FDC3;
-    background-image: linear-gradient(#F6FDC3, #FFCF96);
+    background-color: #FFFFFF;
+    background-image: linear-gradient(#FFFFFF, #FDEDEF );
 }
 
 main,
@@ -154,32 +154,6 @@ figure {
         grid-gap: 30px 20px;
     }
 }
-
-@media only screen and (max-width: 767px) {
-    .item_cap2 .middle .text {
-        padding: 7px 15px;
-        font-size: 14px;
-    }
-
-    .item_cap2 .middle {
-        transition: .5s ease;
-        position: absolute;
-        top: 45%;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        z-index: 999;
-    }
-}
-
-@media only screen and (min-width: 1400px) {
-    #wrapper {
-        width: 1366px;
-        margin: 0 auto;
-        float: none;
-    }
-}
-
 @media only screen and (max-width: 500px) {
     .section_banner .bl2 {
         display: block;
@@ -197,10 +171,25 @@ figure {
         width: 700px;
     }
 }
-
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
     .container {
-        width: 1170px;
+        width: 750px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .item_cap2 .middle .text {
+        padding: 7px 15px;
+        font-size: 14px;
+    }
+
+    .item_cap2 .middle {
+        transition: .5s ease;
+        position: absolute;
+        top: 45%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 999;
     }
 }
 
@@ -209,9 +198,20 @@ figure {
         width: 970px;
     }
 }
-
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     .container {
-        width: 750px;
+        width: 1170px;
     }
 }
+
+@media only screen and (min-width: 1400px) {
+    #wrapper {
+        width: 1366px;
+        margin: 0 auto;
+        float: none;
+    }
+}
+
+
+
+

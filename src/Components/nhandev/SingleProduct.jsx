@@ -48,14 +48,14 @@ const SingleProduct = ({ data, setData, getProduct }) => {
                   <div className="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active swiper-slide-prev"
                     data-swiper-slide-index="0" >
                     <div className="swiper-slide-container">
-                      <a data-fancybox="" href="">
+                      <a data-fancybox="">
                         <img className="image-product-detail" src={data.imgURL1} alt="G3-BAKERY" />
                       </a>
                     </div>
                   </div>
                   <div className="swiper-slide swiper-slide-active swiper-slide-duplicate-next swiper-slide-duplicate-prev" data-swiper-slide-index="0" >
                     <div className="swiper-slide-container">
-                      <a data-fancybox="" href="">
+                      <a data-fancybox="">
                         <img className="image-product-detail" src={data.imgURL1} alt="G3-BAKERY" />
                       </a>
                     </div>
@@ -174,7 +174,7 @@ const SingleProduct = ({ data, setData, getProduct }) => {
                 <div className="w-100" >
                   <a
                     id="ditoigiohang"
-                    href="gio-hang"
+                    href="/cart"
                     style={{ display: isAddedToCart ? 'block' : 'none' }}
                   >Đi tới giỏ hàng <i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
