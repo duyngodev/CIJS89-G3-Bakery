@@ -3,13 +3,14 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { Link, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import AddCircle from '@mui/icons-material/AddCircle';
 import RemoveCircle from '@mui/icons-material/RemoveCircle';
 import HighlightOff from '@mui/icons-material/HighlightOff';
+import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
     const [voucher, setVoucher] = useState('')
@@ -168,7 +169,7 @@ const Cart = (props) => {
                             backgroundColor: '#fbdbe0',
                             color: 'white'
                         }}>
-                            <a style={{color:'white'}} href='/home'>Tiếp tục mua hàng</a>
+                            <Link to="/" style={{color:'white'}}>Tiếp tục mua hàng</Link>
                         </Button>
                     </ThemeProvider>
                 </div>
@@ -294,7 +295,7 @@ const Cart = (props) => {
                     <p>Các món giao ngay ({data.length})</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <Grid container spacing={1} columns={16}>
-                        <Grid item xs={12.5}>
+                        <Grid item xs={12}>
                             <p>Tổng đơn :</p>
                             <p>Bạn được giảm :</p>
                             <h6>Tổng tiền thanh toán :</h6>
@@ -326,7 +327,7 @@ const Cart = (props) => {
                                 backgroundColor: '#fbdbe0',
                                 color: 'white'
                             }}>
-                                <a style={{color:'white'}} href='/home'>Tiếp tục mua hàng</a>
+                                 <Link to="/" style={{color:'white'}}>Tiếp tục mua hàng</Link>
                             </Button>
                         </ThemeProvider>
                     </Stack>
