@@ -7,6 +7,7 @@ const SingleProduct = ({ data, setData, getProduct }) => {
   const [quantity, setQuantity] = useState(1);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   
+  
   const handleAddToCart = () => {
     const productToStore = {
       id: data.id,
@@ -41,7 +42,11 @@ const SingleProduct = ({ data, setData, getProduct }) => {
     setIsAddedToCart(true);
   }
 
-  
+  useEffect(()=>{
+    setQuantity(1);
+    setIsAddedToCart(false);
+  },[data])
+
   return (
     <>
 
