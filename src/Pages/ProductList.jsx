@@ -137,6 +137,7 @@ const ProductList = () => {
   return (
     <Box sx={{
       backgroundImage: 'linear-gradient(#FFFFFF, #FDEDEF )',
+      paddingBottom: '300px',
     }}>
       <Box>
         <div style={bannerContainer}>
