@@ -1,7 +1,9 @@
-#wrapper {
+#wrapper2 {
     width: 100%;
     float: left;
     overflow: hidden;
+    padding-bottom: 200px;
+    padding-top: 80px;
 }
 
 
@@ -177,8 +179,14 @@ figure img{
     .container {
         width: 750px;
     }
+    #wrapper2 {
+        padding-top: 50px;
+        margin: 0 auto;
+        float: none;
+    }
 }
 @media only screen and (max-width: 767px) {
+    
     .item_cap2 .middle .text {
         padding: 7px 15px;
         font-size: 14px;
@@ -193,6 +201,11 @@ figure img{
         text-align: center;
         z-index: 999;
     }
+    #wrapper2 {
+        padding-top: 50px;
+        margin: 0 auto;
+        float: none;
+    }
 }
 
 @media (min-width: 992px) {
@@ -204,15 +217,9 @@ figure img{
     .container {
         width: 1170px;
     }
+    
 }
 
-@media only screen and (min-width: 1400px) {
-    #wrapper {
-        width: 1366px;
-        margin: 0 auto;
-        float: none;
-    }
-}
 
 
 

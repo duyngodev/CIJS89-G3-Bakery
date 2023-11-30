@@ -62,7 +62,7 @@ const ProductDetail = () => {
   }, [data, listData]);
   return (
     <>
-      <div id="wrapper">
+      <div id="wrapper3">
         <main>
           <section style={{ background: "#ebebeb"}}>
             <div className="container">

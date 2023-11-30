@@ -1,8 +1,9 @@
 import React from 'react'
 import '../Components/nhandev/Service.scss'
+
 const Service = () => {
     return (
-        <div id='wrapper'>
+        <div id='wrapper1'>
             <main>
                 <section className="section_danhmuctc">
                     <div className="khungcat1">
