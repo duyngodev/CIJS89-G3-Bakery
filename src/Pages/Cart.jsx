@@ -101,166 +101,18 @@ const Cart = (props) => {
     })
     if (!data || data?.length == 0 || cartsCheckAmountNoEmpty?.length == 0) {
         return (
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                gap: '80px',
-                backgroundImage: 'linear-gradient(#FFFFFF, #FDEDEF )',
-                marginTop: '14px',
-                paddingLeft: '150px',
-                paddingRight: '150px',
-                fontSize: '14px',
-                fontWeight: '400',
-                paddingBottom: '300px',
-            }}
-            >
-                <div style={{
-                    marginTop: '60px',
-                    width: '55%',
-                    height: 'auto'
-                }}
-                >
-                    <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data?.length})</h2>
-                    <p style={{ textAlign: 'center' }}> Không có sản phẩm trong giỏ hàng !!!</p>
-                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <Stack direction="row" spacing={2}>
-                        <TextField
-                            id="filled-textarea"
-                            label="Nhập mã voucher của bạn (nếu có):"
-                            placeholder="Ex: G3B12345678"
-                            multiline
-                            variant="filled"
-                            style={{ width: '100%', padding: '10px' }}
-                            color="warning"
-                            value={input}
-                            onChange={e => setInput(e.target.value)}
-                            inputProps={{
-                                maxLength: "9"
-                            }}
-                        />
-                        <ThemeProvider theme={theme}>
-                            <Button variant="contained" sx={{
-                                width: '150px',
-                                height: '40px',
-                                fontSize: '15px',
-                                backgroundColor: '#9e553b',
-                                color: 'white'
-                            }} onClick={handleClickVoucher}>
-                                Áp dụng
-                            </Button>
-                        </ThemeProvider>
-                    </Stack>
-                </div>
-                <div style={{
-                    marginTop: '50px',
-                    width: '40%',
-                    backgroundColor: '#ffdec5',
-                    padding: '20px',
-                    height: '100%',
-                }}
-                >
-                    <h3 style={{ textAlign: 'center' }}>Thông tin đơn hàng</h3>
-                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <p>Các món giao ngay ({totalCart})</p>
-                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <Grid container spacing={1} columns={16}>
-                        <Grid item xs={12.5}>
-                            <p>Tổng đơn :</p>
-                            <h6>Tổng tiền thanh toán :</h6>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <p>{VND.format(0)}</p>
-                            <p>{VND.format(0)}</p>
-                        </Grid>
-                    </Grid>
-                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <ThemeProvider theme={theme}>
-                        <Button variant="contained" sx={{
-                            width: '100%',
-                            height: '100%',
-                            fontSize: '15px',
-                            backgroundColor: '#fbdbe0',
-                            color: 'white'
-                        }}>
-                            <Link to="/products" style={{ color: 'white' }}>Tiếp tục mua hàng</Link>
-                        </Button>
-                    </ThemeProvider>
-                </div>
-
-            </div>
-        )
-    }
-    return (
-        <>
             <Grid container spacing={2} columns={16} sx={{
                 backgroundImage: 'linear-gradient(#FFFFFF, #FDEDEF )',
-                paddingLeft: '150px',
-                paddingRight: '150px',
+
                 fontSize: '14px',
                 fontWeight: '400',
                 paddingBottom: '300px',
                 marginTop: '50px',
             }}>
-                <Grid item lg={9} sm={9} xs={16}>
+                <Grid item lg={1} sm={1} xs={1}></Grid>
+                <Grid item lg={7} sm={7} xs={16}>
                     <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data?.length})</h2>
-                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Grid container spacing={3}>
-                            <Grid item lg={4.8}>
-                                <p>Chi tiết món</p>
-                            </Grid>
-                            <Grid item lg={2.2}>
-                                <p>Giá</p>
-                            </Grid>
-                            <Grid item lg>
-                                <p>Số lượng</p>
-                            </Grid>
-                            <Grid item lg={2.4}>
-                                <p>Tổng tiền</p>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    {data?.map((cartItem) => {
-                        if (cartItem.quantityInCart > 0) {
-                            return (
-                                <Box key={cartItem.id} sx={{ flexGrow: 1 }}>
-                                    <Grid container spacing={2}>
-                                        <Grid item xs={2}>
-                                            <img src={cartItem.img1} style={{ height: '50px', width: '50px' }} alt="" />
-                                        </Grid>
-                                        <Grid item xs={2.5}>
-                                            <p>{cartItem.name}</p>
-                                        </Grid>
-                                        <Grid item xs={2.3}>
-                                            <p>{VND.format(cartItem.price)}</p>
-                                        </Grid>
-                                        <Grid item xs={2.2}>
-                                            <Stack direction="row" spacing={1} >
-                                                <RemoveCircle fontSize='small' sx={{
-                                                    color: '#eeeeee', minWidth: '20px',
-                                                    width: 'auto',
-                                                    transition: 'all 300ms ease'
-                                                }} onClick={() => (decreaseBtClickHandler(cartItem))} />
-                                                <p>{cartItem.quantityInCart}</p>
-                                                <AddCircle fontSize='small' sx={{
-                                                    color: '#eeeeee', minWidth: '20px',
-                                                    width: 'auto',
-                                                    transition: 'all 300ms ease'
-                                                }} onClick={() => (increaseBtClickHandler(cartItem))} />
-                                            </Stack>
-                                        </Grid>
-                                        <Grid item xs={2}>
-                                            <p style={{ textAlign: 'end' }}>{VND.format(cartItem.quantityInCart * cartItem.price)}</p>
-                                        </Grid>
-                                        <Grid item xs={0.6}>
-                                            <HighlightOff fontSize='small' onClick={() => (deleteBtClickHandler(cartItem.id))} />
-                                        </Grid>
-                                    </Grid>
-                                </Box>
-                            )
-                        }
-                    })}
+                    <p style={{ textAlign: 'center', fontSize: '14px' }}>Không có sản phẩm trong giỏ hàng !!!</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <Stack direction="row" spacing={2} style={{ marginTop: '30px' }}>
                         <TextField
@@ -291,25 +143,199 @@ const Cart = (props) => {
                     </Stack>
                 </Grid >
                 <Grid item lg ></Grid>
-                <Grid item lg={6} sm={6} xs={8} sx={{
+                <Grid item lg={6} sm={5} xs={16} sx={{
                     backgroundColor: '#ffdec5',
                     padding: '20px',
                     height: '100%',
                 }}>
-                    <h3 style={{ textAlign: 'center' }}>Thông tin đơn hàng</h3>
-                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <p>Các món giao ngay ({data?.length})</p>
-                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <Grid container spacing={0.5} columns={16}>
-                        <Grid item lg={12}>
+                    <Grid item lg={16}>
+                        <h3 style={{ textAlign: 'center' }}>Thông tin đơn hàng</h3>
+                    </Grid>
+                    <Grid item lg={16}>
+                        <p>Các món giao ngay ({data?.length})</p>
+                    </Grid>
+                    <Grid container spacing={3}>
+                        <Grid item lg>
                             <p>Tổng đơn :</p>
+                        </Grid>
+                        <Grid item lg={4} md={8} sm={7.6} xs={9}>
+                            <p style={{ textAlign: 'right' }}>{VND.format(totalPrice)}</p>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={3}>
+                        <Grid item lg>
                             <p>Bạn được giảm :</p>
+                        </Grid>
+                        <Grid item lg={4} md={6.8} sm={6} xs={8}>
+                            <p style={{ textAlign: 'right' }}>{VND.format(voucher)}</p>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={3}>
+                        <Grid item lg sm={5.5}>
                             <h6>Tổng tiền thanh toán :</h6>
                         </Grid>
-                        <Grid item lgxs={2}>
-                            <p>{VND.format(totalPrice)}</p>
-                            <p>{VND.format(voucher)}</p>
-                            <p>{VND.format(totalPrice - voucher)}</p>
+                        <Grid item lg={4} md={4.5} sm xs={6}>
+                            <p style={{ textAlign: 'right' }}>{VND.format(totalPrice - voucher)}</p>
+                        </Grid>
+                    </Grid>
+                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
+                    <Stack spacing={2} sx={{ marginTop: '20px' }}>
+                        <ThemeProvider theme={theme}>
+                            <Button variant="contained" sx={{
+                                width: '100%',
+                                height: '100%',
+                                fontSize: '15px',
+                                backgroundColor: '#fbdbe0',
+                                color: 'white'
+                            }}>
+                                <Link to="/products" style={{ color: 'white' }}>Tiếp tục mua hàng</Link>
+                            </Button>
+                        </ThemeProvider>
+                    </Stack>
+                </Grid>
+                <Grid item lg={1} sm={1} xs={1}></Grid>
+            </Grid>
+        )
+    }
+    return (
+        <>
+            <Grid container spacing={2} columns={16} sx={{
+                backgroundImage: 'linear-gradient(#FFFFFF, #FDEDEF )',
+
+                fontSize: '14px',
+                fontWeight: '400',
+                paddingBottom: '300px',
+                marginTop: '50px',
+            }}>
+                <Grid item lg={1} sm={1} xs={1}></Grid>
+                <Grid item lg={7} sm={7} xs={16}>
+                    <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data?.length})</h2>
+                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
+                    <Grid container spacing={2}>
+                        <Grid item lg={12} md={12} xs={12}>
+                            <Box sx={{ flexGrow: 1 }}>
+                                <Grid container spacing={1}>
+                                    <Grid item lg={4.8} md={5} sm={6} xs={4.5}>
+                                        <p>Chi tiết món</p>
+                                    </Grid>
+                                    <Grid item lg={2.2} md={2.2} sm={2} xs={2} >
+                                        <p>Giá</p>
+                                    </Grid>
+                                    <Grid item lg sm xs={2.5}>
+                                        <p>Số lượng</p>
+                                    </Grid>
+                                    <Grid item lg={2.4} md={2.8} sm={2} >
+                                        <p>Tổng tiền</p>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        </Grid>
+                        <Grid item lg md>
+                            {data?.map((cartItem) => {
+                                if (cartItem.quantityInCart > 0) {
+                                    return (
+                                        <Box key={cartItem.id} sx={{ flexGrow: 1 }}>
+                                            <Grid container spacing={2}>
+                                                <Grid item lg={2} md={2} sm={1} xs={2}>
+                                                    <img src={cartItem.img1} style={{ height: '50px', width: '50px' }} alt="" />
+                                                </Grid>
+                                                <Grid item lg={2.5} md={2.5} sm={1.8} xs={2}>
+                                                    <p>{cartItem.name}</p>
+                                                </Grid>
+                                                <Grid item lg={2.3} md={2.3} sm={2.3} xs={2.2}>
+                                                    <p>{VND.format(cartItem.price)}</p>
+                                                </Grid>
+                                                <Grid item lg={2.2} md={2.2} sm={2.3} xs={2}>
+                                                    <Stack direction="row" spacing={1} >
+                                                        <RemoveCircle fontSize='small' sx={{
+                                                            color: '#eeeeee', minWidth: '20px',
+                                                            width: 'auto',
+                                                            transition: 'all 300ms ease'
+                                                        }} onClick={() => (decreaseBtClickHandler(cartItem))} />
+                                                        <p>{cartItem.quantityInCart}</p>
+                                                        <AddCircle fontSize='small' sx={{
+                                                            color: '#eeeeee', minWidth: '20px',
+                                                            width: 'auto',
+                                                            transition: 'all 300ms ease'
+                                                        }} onClick={() => (increaseBtClickHandler(cartItem))} />
+                                                    </Stack>
+                                                </Grid>
+                                                <Grid item lg={2} md={2} sm={2.3} xs={2.5}>
+                                                    <p style={{ textAlign: 'end' }}>{VND.format(cartItem.quantityInCart * cartItem.price)}</p>
+                                                </Grid>
+                                                <Grid item lg={0.6}>
+                                                    <HighlightOff fontSize='small' onClick={() => (deleteBtClickHandler(cartItem.id))} />
+                                                </Grid>
+                                            </Grid>
+                                        </Box>
+                                    )
+                                }
+                            })}
+                        </Grid>
+                    </Grid>
+                    <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
+                    <Stack direction="row" spacing={2} style={{ marginTop: '30px' }}>
+                        <TextField
+                            id="filled-textarea"
+                            label="Nhập mã voucher của bạn (nếu có):"
+                            placeholder="Ex: G3BE12345678"
+                            multiline
+                            variant="filled"
+                            style={{ width: '100%', padding: '10px' }}
+                            color="warning"
+                            value={input}
+                            onChange={e => setInput(e.target.value)}
+                            inputProps={{
+                                maxLength: "9"
+                            }}
+                        />
+                        <ThemeProvider theme={theme}>
+                            <Button variant="contained" sx={{
+                                width: '150px',
+                                height: '40px',
+                                fontSize: '15px',
+                                backgroundColor: '#9e553b',
+                                color: 'white',
+                            }} onClick={handleClickVoucher}>
+                                Áp dụng
+                            </Button>
+                        </ThemeProvider>
+                    </Stack>
+                </Grid >
+                <Grid item lg ></Grid>
+                <Grid item lg={6} sm={5} xs={16} sx={{
+                    backgroundColor: '#ffdec5',
+                    padding: '20px',
+                    height: '100%',
+                }}>
+                    <Grid item lg={16}>
+                        <h3 style={{ textAlign: 'center' }}>Thông tin đơn hàng</h3>
+                    </Grid>
+                    <Grid item lg={16}>
+                        <p>Các món giao ngay ({data?.length})</p>
+                    </Grid>
+                    <Grid container spacing={3}>
+                        <Grid item lg>
+                            <p>Tổng đơn :</p>
+                        </Grid>
+                        <Grid item lg={4} md={8} sm={7.6} xs={9}>
+                            <p style={{ textAlign: 'right' }}>{VND.format(totalPrice)}</p>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={3}>
+                        <Grid item lg>
+                            <p>Bạn được giảm :</p>
+                        </Grid>
+                        <Grid item lg={4} md={6.8} sm={6} xs={8}>
+                            <p style={{ textAlign: 'right' }}>{VND.format(voucher)}</p>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={3}>
+                        <Grid item lg sm={5.5}>
+                            <h6>Tổng tiền thanh toán :</h6>
+                        </Grid>
+                        <Grid item lg={4} md={4.5} sm xs={6}>
+                            <p style={{ textAlign: 'right' }}>{VND.format(totalPrice - voucher)}</p>
                         </Grid>
                     </Grid>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
@@ -338,6 +364,7 @@ const Cart = (props) => {
                         </ThemeProvider>
                     </Stack>
                 </Grid>
+                <Grid item lg={1} sm={1} xs={1}></Grid>
             </Grid>
         </>
     )
