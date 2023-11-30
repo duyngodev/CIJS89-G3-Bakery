@@ -94,13 +94,11 @@ const Cart = (props) => {
             },
         },
     });
-
     const cartsCheckAmountNoEmpty = data?.filter((cartItem) => {
         if (cartItem.quantityInCart > 0) {
             return true
         }
     })
-
     if (!data || data?.length == 0 || cartsCheckAmountNoEmpty?.length == 0) {
         return (
             <div style={{
@@ -125,7 +123,6 @@ const Cart = (props) => {
                     <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data?.length})</h2>
                     <p style={{ textAlign: 'center' }}> Không có sản phẩm trong giỏ hàng !!!</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-
                     <Stack direction="row" spacing={2}>
                         <TextField
                             id="filled-textarea"
@@ -135,6 +132,11 @@ const Cart = (props) => {
                             variant="filled"
                             style={{ width: '100%', padding: '10px' }}
                             color="warning"
+                            value={input}
+                            onChange={e => setInput(e.target.value)}
+                            inputProps={{
+                                maxLength: "9"
+                            }}
                         />
                         <ThemeProvider theme={theme}>
                             <Button variant="contained" sx={{
@@ -280,6 +282,9 @@ const Cart = (props) => {
                             color="warning"
                             value={input}
                             onChange={e => setInput(e.target.value)}
+                            inputProps={{
+                                maxLength: "9"
+                            }}
                         />
                         <ThemeProvider theme={theme}>
                             <Button variant="contained" sx={{
