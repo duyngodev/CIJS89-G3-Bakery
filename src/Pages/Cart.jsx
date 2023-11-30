@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
     const [voucher, setVoucher] = useState('')
+    const [input, setInput] = useState('')
     const { data, setData } = props
     const totalPrice = data?.reduce((total, value) => {
         return total + value.quantityInCart * value.price
@@ -60,11 +61,22 @@ const Cart = (props) => {
         localStorage.setItem("cart", JSON.stringify(cartNewState))
         setData(cartNewState)
     }
-
     const handleClickVoucher = () => {
-        return setVoucher('+ Phiếu giảm giá không tồn tại')
+        setInput('')
+        if (input.includes("G3BA")) {
+            alert("Chúc mừng bạn nhận được Voucher 10%")
+            return setVoucher((totalPrice * 0.1))
+        } if (input.includes("G3BB")) {
+            alert("Chúc mừng bạn nhận được Voucher 15%")
+            return setVoucher((totalPrice * 0.15))
+        } if (input.includes("G3BC")) {
+            alert("Chúc mừng bạn nhận được Voucher 20%")
+            return setVoucher((totalPrice * 0.2))
+        } else {
+            alert('Voucher của bạn không tồn tại')
+            return setVoucher('')
+        }
     }
-
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -136,7 +148,6 @@ const Cart = (props) => {
                             </Button>
                         </ThemeProvider>
                     </Stack>
-                    {voucher}
                 </div>
                 <div style={{
                     marginTop: '50px',
@@ -169,7 +180,7 @@ const Cart = (props) => {
                             backgroundColor: '#fbdbe0',
                             color: 'white'
                         }}>
-                            <Link to="/" style={{color:'white'}}>Tiếp tục mua hàng</Link>
+                            <Link to="/products" style={{ color: 'white' }}>Tiếp tục mua hàng</Link>
                         </Button>
                     </ThemeProvider>
                 </div>
@@ -262,11 +273,13 @@ const Cart = (props) => {
                         <TextField
                             id="filled-textarea"
                             label="Nhập mã voucher của bạn (nếu có):"
-                            placeholder="Ex: G3B12345678"
+                            placeholder="Ex: G3BE12345678"
                             multiline
                             variant="filled"
                             style={{ width: '100%', padding: '10px' }}
                             color="warning"
+                            value={input}
+                            onChange={e => setInput(e.target.value)}
                         />
                         <ThemeProvider theme={theme}>
                             <Button variant="contained" sx={{
@@ -280,7 +293,6 @@ const Cart = (props) => {
                             </Button>
                         </ThemeProvider>
                     </Stack>
-                    <div>{voucher}</div>
                 </div>
                 <div style={{
                     marginTop: '50px',
@@ -294,7 +306,7 @@ const Cart = (props) => {
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <p>Các món giao ngay ({data?.length})</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
-                    <Grid container spacing={1} columns={16}>
+                    <Grid container spacing={0.5} columns={16}>
                         <Grid item xs={12}>
                             <p>Tổng đơn :</p>
                             <p>Bạn được giảm :</p>
@@ -302,8 +314,8 @@ const Cart = (props) => {
                         </Grid>
                         <Grid item xs={2}>
                             <p>{VND.format(totalPrice)}</p>
-                            <p style={{ marginLeft: '45px' }}>{VND.format(0)}</p>
-                            <p>{VND.format(totalPrice)}</p>
+                            <p>{VND.format(voucher)}</p>
+                            <p>{VND.format(totalPrice - voucher)}</p>
                         </Grid>
                     </Grid>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
@@ -327,12 +339,11 @@ const Cart = (props) => {
                                 backgroundColor: '#fbdbe0',
                                 color: 'white'
                             }}>
-                                 <Link to="/" style={{color:'white'}}>Tiếp tục mua hàng</Link>
+                                <Link to="/products" style={{ color: 'white' }}>Tiếp tục mua hàng</Link>
                             </Button>
                         </ThemeProvider>
                     </Stack>
                 </div>
-
             </div >
         </>
     )

@@ -20,22 +20,28 @@ const Footer = () => {
                 paddingTop: '80px',
                 marginTop: '-150px'
             }}>
-                <div style={{ marginLeft: '200px', fontSize: '20px' }}>
+                <div style={{ fontSize: '20px'}}>
                     <Grid container spacing={2}>
-                        <Grid item xs={3} sx={{ marginLeft: '60px' }}>
+                        <Grid item lg={2.5} md={2.5} sm={2.5} xs={4}>
+                            <p></p>
+                        </Grid>
+                        <Grid item lg={2.5} md={2.5} sm={2.1} xs={10}>
                             <p>CONTACT</p>
                         </Grid>
-                        <Grid item xs={3.9}>
+                        <Grid item lg={3.3} md={3.3} sm={3.3} xs={12}>
                             <p>GET SUGARY LETTERS</p>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item lg md sm>
                             <p>OUR PRODUCT</p>
                         </Grid>
                     </Grid>
                 </div>
-                <div style={{ marginLeft: '160px', fontSize: '10px', marginTop: '20px', marginBottom: '20px' }}>
+                <div style={{ fontSize: '10px', marginTop: '20px', marginBottom: '20px' }}>
                     <Grid container spacing={3}>
-                        <Grid item xs={3.5}>
+                    <Grid item lg={1.5} md={1.5} sm={1.5} xs={4}>
+                            <p></p>
+                        </Grid>
+                        <Grid item lg={3.5} md={3.5} sm={3} xs={12}>
                             <h5>G3 Bakery</h5>
                             <Stack direction="row" spacing={1}>
                                 <Phone sx={{ fontSize: '15px' }} />
@@ -48,7 +54,7 @@ const Footer = () => {
                                     P. Hiệp Bình Phước, TP. HCM</p>
                             </Stack>
                         </Grid>
-                        <Grid item xs={3.5} sx={{ marginLeft: '20px' }}>
+                        <Grid item lg={3.5} md={3.5} sm={3.6} xs={12}>
                             <Stack direction="row" spacing={1}>
                                 <Email sx={{ fontSize: '15px'}} />
                                 <p>Email:</p>
@@ -60,7 +66,7 @@ const Footer = () => {
                             </Stack>
 
                         </Grid>
-                        <Grid item xs sx={{ marginLeft: '60px' }}>
+                        <Grid item lg md sm >
                             <Stack direction="row" spacing={1}>
                                 <Cake sx={{ fontSize: '15px' }} />
                                 <p style={{ marginTop: '2px' }}>Bakery Store</p>

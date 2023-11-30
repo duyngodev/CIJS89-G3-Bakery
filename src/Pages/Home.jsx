@@ -12,7 +12,7 @@ import Services from '../Components/duydev/Home/Services'
 const Home = () => {
   return (
     <CssBaseline>
-      <Box sx={{ backgroundColor: "#FFFFFF", backgroundImage: "linear-gradient(#FFFFFF, #FDEDEF)" }}>
+      <Box sx={{ backgroundColor: "#FFFFFF", backgroundImage: "linear-gradient(#FFFFFF, #FDEDEF)",paddingBottom:'300px'}}>
         <Carousel />
         <NgotVaThuong />
         <Events />
