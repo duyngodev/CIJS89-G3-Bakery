@@ -192,39 +192,30 @@ const Cart = (props) => {
     }
     return (
         <>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                gap: '80px',
+            <Grid container spacing={2} columns={16} sx={{
                 backgroundImage: 'linear-gradient(#FFFFFF, #FDEDEF )',
-                marginTop: '14px',
                 paddingLeft: '150px',
                 paddingRight: '150px',
                 fontSize: '14px',
                 fontWeight: '400',
                 paddingBottom: '300px',
-            }}
-            >
-                <div style={{
-                    marginTop: '60px',
-                    width: '55%',
-                    height: 'auto'
-                }}
-                >
+                marginTop: '50px',
+            }}>
+                <Grid item lg={9} sm={9} xs={16}>
                     <h2 style={{ textAlign: 'center', fontSize: '18px' }}>Giỏ hàng của tôi ({data?.length})</h2>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={3}>
-                            <Grid item xs={4.8}>
+                            <Grid item lg={4.8}>
                                 <p>Chi tiết món</p>
                             </Grid>
-                            <Grid item xs={2.2}>
+                            <Grid item lg={2.2}>
                                 <p>Giá</p>
                             </Grid>
-                            <Grid item xs>
+                            <Grid item lg>
                                 <p>Số lượng</p>
                             </Grid>
-                            <Grid item xs={2.4}>
+                            <Grid item lg={2.4}>
                                 <p>Tổng tiền</p>
                             </Grid>
                         </Grid>
@@ -298,26 +289,24 @@ const Cart = (props) => {
                             </Button>
                         </ThemeProvider>
                     </Stack>
-                </div>
-                <div style={{
-                    marginTop: '50px',
-                    width: '40%',
+                </Grid >
+                <Grid item lg ></Grid>
+                <Grid item lg={6} sm={6} xs={8} sx={{
                     backgroundColor: '#ffdec5',
                     padding: '20px',
                     height: '100%',
-                }}
-                >
+                }}>
                     <h3 style={{ textAlign: 'center' }}>Thông tin đơn hàng</h3>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <p>Các món giao ngay ({data?.length})</p>
                     <hr style={{ backgroundColor: 'black', borderColor: 'transparent', borderWidth: '0.5px' }} />
                     <Grid container spacing={0.5} columns={16}>
-                        <Grid item xs={12}>
+                        <Grid item lg={12}>
                             <p>Tổng đơn :</p>
                             <p>Bạn được giảm :</p>
                             <h6>Tổng tiền thanh toán :</h6>
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item lgxs={2}>
                             <p>{VND.format(totalPrice)}</p>
                             <p>{VND.format(voucher)}</p>
                             <p>{VND.format(totalPrice - voucher)}</p>
@@ -348,8 +337,8 @@ const Cart = (props) => {
                             </Button>
                         </ThemeProvider>
                     </Stack>
-                </div>
-            </div >
+                </Grid>
+            </Grid>
         </>
     )
 }
