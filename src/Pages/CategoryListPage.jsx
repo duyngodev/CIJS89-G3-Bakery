@@ -42,7 +42,7 @@ const CategoryListPage = () => {
     };
     return (
         <>
-            <div id="wrapper">
+            <div id="wrapper2">
                 <main>
                     <section className="section_banner">
                         <img className="bl1" src="https://www.sugartown.vn/upload/sanpham/-16489067484.jpg" alt="G3-BAKERY" />

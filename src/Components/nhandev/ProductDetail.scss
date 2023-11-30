@@ -1,8 +1,9 @@
 
-#wrapper {
+#wrapper3 {
     width: 100%;
     float: left;
     overflow: hidden;
+    padding-bottom: 200px;
 }
 main {
     background-color: #FFFFFF;
@@ -644,14 +645,13 @@ b{
     .product_other {
         grid-template-columns: repeat(2,1fr);
     }
-}
-@media only screen and (min-width: 1400px){
-    #wrapper {
-        width: 1366px;
+    #wrapper3 {
         margin: 0 auto;
         float: none;
+        padding-bottom: 200px;
     }
 }
+
 
 @media only screen and (max-width: 767px){
     .khungproductorthermobi .khungspothermb .item_sp .img_spnew, .khungproductorthermobi .khungspothermb .item_sp .img_spsale {
@@ -712,7 +712,13 @@ b{
         grid-template-columns: repeat(5,1fr);
     }
 }
-
+@media only screen and (min-width: 1400px){
+    #wrapper3 {
+        width: 1366px;
+        margin: 0 auto;
+        float: none;
+    }
+}
 
 
 
