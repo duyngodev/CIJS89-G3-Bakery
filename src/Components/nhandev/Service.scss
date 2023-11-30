@@ -92,6 +92,9 @@ img {
     vertical-align: middle;
     border: 0;
 }
+.figure img {
+    margin-left: 20%;
+}
 @media only screen and (max-width: 767px) {
     .khungcat1 .img_cat img {
         width: 200px;
