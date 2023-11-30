@@ -7,19 +7,14 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
 
-const pages = ['Home', 'Products', 'AboutUs', 'News', 'Event', 'Contact']
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Products', 'Service', 'AboutUs', 'Event', 'Contact']
 const Header = (props) => {
     const { data } = props
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -37,7 +32,7 @@ const Header = (props) => {
         setAnchorElUser(null);
     };
     return (
-        <AppBar sx={{ backgroundColor: '#9e553b' }}>
+        <AppBar sx={{ backgroundColor: '#9e553b'}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -59,7 +54,7 @@ const Header = (props) => {
                     >
                         G3Bakery
                     </Typography>
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box sx={{ flexGrow: 0, }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -85,12 +80,12 @@ const Header = (props) => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block' },
+                                display: {xs: 'block'},
                             }}
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Link to={"/"+page}><Typography textAlign="center">{page}</Typography></Link> 
+                                    <Link to={"/" + page}><Typography textAlign="center">{page}</Typography></Link>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -114,7 +109,7 @@ const Header = (props) => {
                     >
                         G3Bakery
                     </Typography>
-                   <Link to="/cart" style={{color:'white'}}><Badge badgeContent={data?.length} color="primary"> <ShoppingCartIcon /></Badge></Link> 
+                    <Link to="/cart" style={{ color: 'white' }}><Badge badgeContent={data?.length} color="primary"> <ShoppingCartIcon /></Badge></Link>
                 </Toolbar>
             </Container>
         </AppBar>
