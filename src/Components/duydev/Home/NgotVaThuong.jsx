@@ -45,7 +45,7 @@ const NgotVaThuong = () => {
             <Box component="img" sx={imgStyle} src="https://sugartown.vn/img/slogan.png" alt='sugatTown' />
             <Stack sx={ngotVaThuongStyle} >
                 <Box justifyContent={'center'} sx={{ display: 'flex' }}>
-                    <Link sx={boxContainer}>
+                    <Link sx={boxContainer} to='/Service/CategoryListPage'>
                         <Box sx={{ width: '192px', height: '192px' }}>
                             <Box sx={buttonStyle}></Box>
                         </Box>

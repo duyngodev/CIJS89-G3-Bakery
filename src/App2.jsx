@@ -29,7 +29,7 @@ function App() {
             <Routes>
                 <Route path="/home" element={<Home />} />
                 <Route path="/products/:category" element={<ProductList />} />
-                <Route path='/products/productDetail/:id' element={<ProductDetail />} />
+                <Route path='/products/:category/:id' element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart data={data} setData={setData} />} />
                 <Route path="/aboutus" element={<Aboutus />} />
                 <Route path='/service' element={<Service />} />

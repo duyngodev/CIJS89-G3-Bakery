@@ -12,14 +12,16 @@ import Services from '../Components/duydev/Home/Services'
 const Home = () => {
   return (
     <CssBaseline>
-      <Box sx={{ backgroundColor: "#FFFFFF", backgroundImage: "linear-gradient(#FFFFFF, #FDEDEF)",paddingBottom:'300px'}}>
-        <Carousel />
-        <NgotVaThuong />
-        <Events />
-        <Discount />
-        <Logo />
-        <Services />
-      </Box>
+      <Container>
+        <Box sx={{ backgroundColor: "#FFFFFF", backgroundImage: "linear-gradient(#FFF,#FDEDEF,#FFF)", paddingBottom: '300px' }}>
+          <Carousel />
+          <NgotVaThuong />
+          <Events />
+          <Discount />
+          <Logo />
+          <Services />
+        </Box>
+      </Container>
     </CssBaseline>
   )
 }

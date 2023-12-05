@@ -33,7 +33,7 @@ const ProductList = () => {
     });
   };
   const { New, sell } = state;
-  
+
   //danh mục Filtering
 
   const [toggle, setToggle] = useState('20-11')
@@ -93,7 +93,7 @@ const ProductList = () => {
       category: 'BÁNH LẠNH'
     }
     ]
-      // Get category from URL parameter
+  // Get category from URL parameter
   const { category } = useParams();
   const cateName = filterData.filter(item => item.category === category)
   useEffect(() => {
@@ -204,30 +204,32 @@ const ProductList = () => {
             <Grid container spacing={2} >
               {dataShow.map(item => {
                 return (
-                  <Grid key={item.id} item xs={4}>
+                  <Grid key={item.id} item xs={4} sx={{ marginBottom: "20px" }}>
                     <Stack >
                       <figure>
-                        <Link to={`/products/productDetail/${item.id}`}>
-                          <div style={{ borderRadius: '50% 50% 0 0', backgroundColor: '#e5e5e5', padding: '15px 15px 15px 15px', textAlign: 'center', position: 'relative' }}>
-                            {/* new item */}
-                            {item.newProduct && <div style={{ position: 'absolute', top: '0', right: '0' }}>
-                              <img style={{ zIndex: '9999' }} src="https://sugartown.vn/img/lblnew.png" alt="" />
-                            </div>}
+                        <div style={{ padding: '0 30px ', marginBottom: '10px' }}>
+                          <Link to={`/products/${item.category}/${item.id}`}>
+                            <div style={{ borderRadius: '50% 50% 0 0', backgroundColor: '#e5e5e5', padding: '15px', textAlign: 'center', position: 'relative' }}>
+                              {/* new item */}
+                              {item.newProduct && <div style={{ position: 'absolute', top: '0', right: '0' }}>
+                                <img style={{ maxWidth: '100%' }} src="https://sugartown.vn/img/lblnew.png" alt="" />
+                              </div>}
 
-                            {/* best seller */}
-                            {item.bestSeller && <div style={{ position: 'absolute', top: '0', left: '0' }}>
-                              <img src="https://sugartown.vn/img/lblsale.png" alt="" />
-                            </div>}
-                            {/* image product */}
-                            <img style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'relative', top: '15px' }} src={item.imgURL1} alt="" />
-                          </div>
-                        </Link>
+                              {/* best seller */}
+                              {item.bestSeller && <div style={{ position: 'absolute', top: '0', left: '0' }}>
+                                <img style={{ maxWidth: '100%' }} src="https://sugartown.vn/img/lblsale.png" alt="" />
+                              </div>}
+                              {/* image product */}
+                              <img style={{ maxWidth: '100%', height: '100%', objectFit: 'cover', position: 'relative', top: '15px' }} src={item.imgURL1} alt="" />
+                            </div>
+                          </Link>
+                        </div>
                       </figure>
-                      <figcaption>
+                      <figcaption style={{ textAlign: 'center' }}>
                         <Link>
                           <Typography component="p" variant="h6" sx={{ color: 'black', '&:hover': { color: '#9d573c' } }}>{item.name}</Typography>
                         </Link>
-                        <p style={{ margin: '0' }}>{item.price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</p>
+                        <p style={{ margin: '0', fontSize: '16px' }}>{item.price.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}</p>
                       </figcaption>
                     </Stack>
                   </Grid>

@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const pages = ['Home', 'Products', 'Service', 'AboutUs', 'Event', 'Contact']
+const pages = ['Home', 'Service/CategoryListPage', 'Service', 'AboutUs', 'Event', 'Contact']
 const Header = (props) => {
     const { data } = props
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -32,7 +32,7 @@ const Header = (props) => {
         setAnchorElUser(null);
     };
     return (
-        <AppBar sx={{ backgroundColor: '#9e553b'}}>
+        <AppBar sx={{ backgroundColor: '#9e553b' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -80,7 +80,7 @@ const Header = (props) => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: {xs: 'block'},
+                                display: { xs: 'block' },
                             }}
                         >
                             {pages.map((page) => (
