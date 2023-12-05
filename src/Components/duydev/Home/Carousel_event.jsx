@@ -1,6 +1,6 @@
-import { Box, Button, ButtonBase, Stack } from '@mui/material'
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Box, Button, Stack } from '@mui/material'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Carousel_event = ({ data }) => {
     const eventStyle = {
@@ -57,44 +57,149 @@ const Carousel_event = ({ data }) => {
         }
 
     }
-    return (
-        <>
-            {
-                data.map((event, index) => {
-                    return (
-                        // <div key={index} style={{ width: '28%', flex: '0 0 auto' }} >
 
-                        //     <img style={eventStyle} src={event.url} alt="" />
-                        // </div>
-                        <Box
-                            key={index}
-                            flex={"1 0 33.33333%"}
-                            overflow={'hidden'}
-                        >
-                            <Link >
-                                <Box sx={evetnBoxStyle}>
-                                    <Box component="img" sx={eventStyle} src={event.url} alt="" />
-                                </Box>
-                            </Link>
-                            <Box sx={figureCaption}>
-                                <Box sx={{ width: '70%', margin: '0 auto' }}>
-                                    <Box textAlign={'center'}  >
-                                        <a style={{ textOverflow: 'ellipsis', zIndex: "10000", color: '#ae735d' }} >
-                                            {event.title}
-                                        </a>
-                                        <p style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', zIndex: '1000' }}>{event.description}</p>
-                                    </Box>
-                                    <Stack >
-                                        <Button sx={buttonStyleEvent}>xem them</Button>
-                                        {/* <Button sx={{ display: { xs: 'block', sm: 'none' }, borderRadius: '15px', backgroundColor: 'transparent' }} >Tat ca bai viet</Button> */}
-                                    </Stack>
-                                </Box>
-                            </Box>
-                        </Box >
-                    )
-                })
-            }
-        </>
+    // const containerRef = useRef()
+    // const [current, setCurrent] = useState(1)
+    // const [translateX, setTranslateX] = useState(1)
+
+    const slides = useMemo(() => {
+
+        let items = data.map((event) => (
+            <Box
+                key={event.position}
+                flex={"1 0 33.33333%"}
+                overflow={'hidden'}
+            >
+                <Link >
+                    <Box sx={evetnBoxStyle}>
+                        <Box component="img" sx={eventStyle} src={event.url} alt="" />
+                    </Box>
+                </Link>
+                <Box sx={figureCaption}>
+                    <Box sx={{ width: '70%', margin: '0 auto' }}>
+                        <Box textAlign={'center'}  >
+                            <a style={{ textOverflow: 'ellipsis', zIndex: "10000", color: '#ae735d' }} >
+                                {event.title}
+                            </a>
+                            <p style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', zIndex: '1000' }}>{event.description}</p>
+                        </Box>
+                        <Stack >
+                            <Button sx={buttonStyleEvent}>xem them</Button>
+                            {/* <Button sx={{ display: { xs: 'block', sm: 'none' }, borderRadius: '15px', backgroundColor: 'transparent' }} >Tat ca bai viet</Button> */}
+                        </Stack>
+                    </Box>
+                </Box>
+            </Box >
+        ))
+
+        return [
+            ...items,
+            <Box
+                key={data.length + 1}
+                flex={"1 0 33.33333%"}
+                overflow={'hidden'}
+            >
+                <Link >
+                    <Box sx={evetnBoxStyle}>
+                        <Box component="img" sx={eventStyle} src={data[0].url} alt="" />
+                    </Box>
+                </Link>
+                <Box sx={figureCaption}>
+                    <Box sx={{ width: '70%', margin: '0 auto' }}>
+                        <Box textAlign={'center'}  >
+                            <a style={{ textOverflow: 'ellipsis', zIndex: "10000", color: '#ae735d' }} >
+                                {data[0].title}
+                            </a>
+                            <p style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', zIndex: '1000' }}>{data[0].description}</p>
+                        </Box>
+                        <Stack >
+                            <Button sx={buttonStyleEvent}>xem them</Button>
+                            {/* <Button sx={{ display: { xs: 'block', sm: 'none' }, borderRadius: '15px', backgroundColor: 'transparent' }} >Tat ca bai viet</Button> */}
+                        </Stack>
+                    </Box>
+                </Box>
+            </Box >,
+            <Box
+                key={data.length + 2}
+                flex={"1 0 33.33333%"}
+                overflow={'hidden'}
+            >
+                <Link >
+                    <Box sx={evetnBoxStyle}>
+                        <Box component="img" sx={eventStyle} src={data[1].url} alt="" />
+                    </Box>
+                </Link>
+                <Box sx={figureCaption}>
+                    <Box sx={{ width: '70%', margin: '0 auto' }}>
+                        <Box textAlign={'center'}  >
+                            <a style={{ textOverflow: 'ellipsis', zIndex: "10000", color: '#ae735d' }} >
+                                {data[1].title}
+                            </a>
+                            <p style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', zIndex: '1000' }}>{data[1].description}</p>
+                        </Box>
+                        <Stack >
+                            <Button sx={buttonStyleEvent}>xem them</Button>
+                            {/* <Button sx={{ display: { xs: 'block', sm: 'none' }, borderRadius: '15px', backgroundColor: 'transparent' }} >Tat ca bai viet</Button> */}
+                        </Stack>
+                    </Box>
+                </Box>
+            </Box >,
+            <Box
+                key={data.length + 3}
+                flex={"1 0 33.33333%"}
+                overflow={'hidden'}
+            >
+                <Link >
+                    <Box sx={evetnBoxStyle}>
+                        <Box component="img" sx={eventStyle} src={data[2].url} alt="" />
+                    </Box>
+                </Link>
+                <Box sx={figureCaption}>
+                    <Box sx={{ width: '70%', margin: '0 auto' }}>
+                        <Box textAlign={'center'}  >
+                            <a style={{ textOverflow: 'ellipsis', zIndex: "10000", color: '#ae735d' }} >
+                                {data[2].title}
+                            </a>
+                            <p style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', zIndex: '1000' }}>{data[2].description}</p>
+                        </Box>
+                        <Stack >
+                            <Button sx={buttonStyleEvent}>xem them</Button>
+                            {/* <Button sx={{ display: { xs: 'block', sm: 'none' }, borderRadius: '15px', backgroundColor: 'transparent' }} >Tat ca bai viet</Button> */}
+                        </Stack>
+                    </Box>
+                </Box>
+            </Box >,
+        ]
+    }, [data])
+
+    // const handlerNextSlide = useCallback(() => {
+    //     // console.log(current);
+    //     if (current < data.length) {
+    //         setCurrent(prev => prev + 1)
+    //         setTranslateX(1 / 3 * (current + 1))
+
+    //     } else if (current >= data.length) {
+    //         setCurrent(0)
+    //         setTranslateX(1 / 3 * (data.length))
+    //     }
+    // }, [current, data])
+
+
+
+    // useEffect(() => {
+    //     setInterval(() => {
+    //         handlerNextSlide()
+    //     }, 2000)
+    // }, [handlerNextSlide])
+
+
+    return (
+        <div style={{ position: 'relative' }}>
+            <Stack flexDirection={'row'} sx={{ overflow: 'hidden', width: { md: "750px", lg: "960px" }, mx: 'auto ', transitionDuration: '2000ms', transform: `translate3d(-${translateX},0,0)` }} spacing={0}>
+                {slides}
+            </Stack>
+            {/* <Button sx={{ position: 'absolute', top: '0', color: 'red', height: '200px', width: ' 100%' }} onClick={handlerNextSlide}>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Button> */}
+        </div>
     )
 }
 
