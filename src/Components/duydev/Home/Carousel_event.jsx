@@ -195,7 +195,7 @@ const Carousel_event = ({ data }) => {
 
     return (
         <div style={{ position: 'relative' }}>
-            <Stack flexDirection={'row'} sx={{ overflow: 'hidden', width: { md: "750px", lg: "960px" }, mx: 'auto ', transitionDuration: '2000ms', transform: `translate3d(-${translateX},0,0)` }} spacing={0}>
+            <Stack flexDirection={'row'} sx={{ overflow: 'hidden', width: { md: "750px", lg: "960px" }, mx: 'auto ' }} spacing={0}>
                 {slides}
             </Stack>
             {/* <Button sx={{ position: 'absolute', top: '0', color: 'red', height: '200px', width: ' 100%' }} onClick={handlerNextSlide}>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Button> */}

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link, useNavigate  } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../Components/nhandev/CategoryListPage.scss'
 11
 const CategoryListPage = () => {
-    const history = useNavigate ();
+    const history = useNavigate();
     const filterImg =
         [{
             img: 'https://www.sugartown.vn/upload/sanpham/asset-1-16998632120.png',
