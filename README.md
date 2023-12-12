@@ -15,11 +15,11 @@
 \
 ### Duy Bao Ngo (Leader)
 - Roles: Leader, Front-end developer
-- Tasks: Home page, landing page, set up project, route-link ,reporter
+- Tasks: Home page, landing page, set up project, product list page,  route-link ,reporter
 
 ### Nhan Phu Le
 - Roles: Front-end developer
-- Tasks: Product list page, product page, category list page
+- Tasks: Product page, category list page
 \
 ### Huy Quang Le
 - Roles: Front-end developer
