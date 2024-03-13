@@ -9,7 +9,7 @@ import TurnedInIcon from '@mui/icons-material/TurnedIn';
 // import TurnedInOutlinedIcon from '@mui/icons-material/TurnedInOutlined';
 
 
-const Carousel = () => {
+const   Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const imgUrl = [{
         index: '1',

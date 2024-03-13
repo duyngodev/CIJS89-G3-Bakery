@@ -1,0 +1,3 @@
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const RESET_QUANTITY = 'RESET_QUANTITY';
+export const TOGGLE_ADDED_TO_CART = 'TOGGLE_ADDED_TO_CART';
