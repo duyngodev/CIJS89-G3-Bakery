@@ -4,7 +4,7 @@ import { addToCart, toggleAddedToCart, saveProductToDatabase  } from "./actions"
 
 const SingleProduct = ({ data }) => {
   const dispatch = useDispatch();
-  const isAddedToCart = useSelector((state) => state);
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = () => {
@@ -25,12 +25,13 @@ const SingleProduct = ({ data }) => {
     dispatch(addToCart(productToStore));
     dispatch(toggleAddedToCart());
     dispatch(saveProductToDatabase(productToStore));
-    console.log(isAddedToCart);
-
+    setQuantity(1);
+    setIsAddedToCart(true);
   };
   
   useEffect(()=>{
     setQuantity(1);
+    setIsAddedToCart(false);
   },[data]);
 
 //   const [loading, setLoading] = useContext(ApiStateContext);
