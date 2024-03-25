@@ -1,5 +1,5 @@
 // singleProductReducer.js
-import { ADD_TO_CART, RESET_QUANTITY, TOGGLE_ADDED_TO_CART, REMOVE_FROM_CART, INCREASE_QUANTITY, DECREASE_QUANTITY } from "./actionTypes";
+import { ADD_TO_CART, RESET_QUANTITY, TOGGLE_ADDED_TO_CART, REMOVE_FROM_CART, INCREASE_QUANTITY, DECREASE_QUANTITY,PAY_CART  } from "./actionTypes";
 
 const initialState = {
   cart: [],
@@ -54,6 +54,8 @@ const singleProductReducer = (state = initialState, action) => {
         return item;
       });
       return { ...state, cart: decreasedCart };
+    case PAY_CART:
+      return { ...state, cart: [] };
     default:
       return state;
   }
